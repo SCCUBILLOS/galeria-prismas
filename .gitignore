@@ -1,0 +1,44 @@
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Compilados y distribución
+dist/
+build/
+**/dist/
+**/build/
+coverage/
+**/coverage/
+
+# Variables de entorno y secretos (NUNCA subir .env real)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/.env
+**/.env.*
+!**/.env.example
+
+# Bases de datos SQLite de desarrollo (el seed las recrea)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite-journal
+backend/prisma/*.db
+backend/prisma/*.db-journal
+
+# Logs y archivos temporales
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+*.log
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
