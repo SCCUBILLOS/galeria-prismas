@@ -1,0 +1,37 @@
+{
+  "desarrolladores": [
+    {
+      "id": 1,
+      "nombre": "Sara Cárdenas",
+      "rol": "Product Owner",
+      "correo": "sara-cardenasc@unilibre.edu.co",
+      "celular": "3000000001",
+      "github": "https://github.com/SCCUBILLOS",
+      "linkedin": "",
+      "foto": "/equipo/sara.jpg",
+      "biografia": "Estudiante de Ingeniería de Sistemas en la Universidad Libre. Product Owner en Sprint 1 y 4, Scrum Master en Sprint 2 y Developer en Sprint 3. Especialista en arquitectura de información, UX y backend."
+    },
+    {
+      "id": 2,
+      "nombre": "Nicolás Molina",
+      "rol": "Scrum Master",
+      "correo": "nicolas.molina@ejemplo.com",
+      "celular": "3000000002",
+      "github": "",
+      "linkedin": "",
+      "foto": "/equipo/nicolas.jpg",
+      "biografia": "Estudiante de Ingeniería de Sistemas en la Universidad Libre. Scrum Master en Sprint 1 y 4, Developer en Sprint 2 y Product Owner en Sprint 3. Dato de contacto marcado como (ejemplo) para edición desde el CRUD."
+    },
+    {
+      "id": 3,
+      "nombre": "Brayan Gómez",
+      "rol": "Developer",
+      "correo": "brayan.gomez@ejemplo.com",
+      "celular": "3000000003",
+      "github": "",
+      "linkedin": "",
+      "foto": "/equipo/brayan.jpg",
+      "biografia": "Estudiante de Ingeniería de Sistemas en la Universidad Libre. Developer en Sprint 1 y 4, Product Owner en Sprint 2 y Scrum Master en Sprint 3. Dato de contacto marcado como (ejemplo) para edición desde el CRUD."
+    }
+  ]
+}

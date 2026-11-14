@@ -1,0 +1,397 @@
+/**
+ * Hoja de estilos principal de Galería Prismas.
+ * Cumple los estándares W3C (CSS Validator Jigsaw) y WCAG 2.1 AA:
+ * - Paleta neutra (#FFFFFF, #F8F9FA, #141414) y acento dorado oscuro (#8A6516) con contraste >= 4.7:1 sobre blanco.
+ * - Tipografías: Playfair Display (títulos) e Inter (cuerpo con interlineado >= 1.6).
+ * - Diseño mobile-first con CSS Grid y Flexbox.
+ */
+
+:root {
+  --color-bg: #ffffff;
+  --color-bg-soft: #f7f6f2;
+  --color-text: #141414;
+  --color-text-muted: #4a4a4a;
+  --color-gold-text: #8a6516;
+  --color-gold-bg: #6b4e10;
+  --color-gold-accent: #c69214;
+  --color-border: #e2dfd7;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-serif {
+  font-family: var(--font-serif);
+  color: var(--color-text);
+  line-height: 1.25;
+}
+
+p,
+li,
+dd,
+label {
+  line-height: 1.6;
+}
+
+/* Enlace saltar al contenido para accesibilidad por teclado (WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 2000;
+  background-color: #141414;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+  outline: 3px solid var(--color-gold-accent);
+}
+
+/* Foco visible claro para navegación con teclado (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-gold-text);
+  outline-offset: 2px;
+}
+
+/* Colores y botones institucionales con contraste AA verificado */
+.text-gold {
+  color: var(--color-gold-text);
+}
+
+.bg-soft {
+  background-color: var(--color-bg-soft);
+}
+
+.btn-gold {
+  background-color: var(--color-gold-bg);
+  color: #ffffff;
+  border: 1px solid var(--color-gold-bg);
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-gold:hover,
+.btn-gold:focus {
+  background-color: #523b0b;
+  border-color: #523b0b;
+  color: #ffffff;
+}
+
+.btn-outline-gold {
+  background-color: transparent;
+  color: var(--color-gold-text);
+  border: 1.5px solid var(--color-gold-text);
+  font-weight: 600;
+}
+
+.btn-outline-gold:hover,
+.btn-outline-gold:focus {
+  background-color: var(--color-gold-bg);
+  border-color: var(--color-gold-bg);
+  color: #ffffff;
+}
+
+/* Header Sticky */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-link-prisma {
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.nav-link-prisma:hover,
+.nav-link-prisma.active {
+  color: var(--color-gold-text);
+  background-color: var(--color-bg-soft);
+}
+
+/* Grid de catálogo mobile-first */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tarjetas de obra */
+.obra-card {
+  border: 1px solid var(--color-border);
+  border-radius: 0.65rem;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.obra-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(20, 20, 20, 0.08);
+}
+
+.obra-card-img-wrapper {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #f0efe9;
+}
+
+.obra-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.obra-card:hover .obra-card-img {
+  transform: scale(1.04);
+}
+
+/* Slider principal en Inicio */
+.hero-slider {
+  position: relative;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  background-color: #141414;
+  color: #ffffff;
+  min-height: 430px;
+}
+
+.hero-slide-img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  opacity: 0.45;
+}
+
+.hero-slide-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(90deg, rgba(15, 15, 15, 0.88) 0%, rgba(15, 15, 15, 0.35) 100%);
+}
+
+@media (min-width: 768px) {
+  .hero-slide-content {
+    padding: 3.5rem 4.5rem;
+  }
+}
+
+/* Botones flotantes (WhatsApp, Prisma IA y Accesibilidad) */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1040;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: #128c7e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+}
+
+.floating-whatsapp:hover {
+  background-color: #075e54;
+  color: #ffffff;
+}
+
+.floating-ia-btn {
+  position: fixed;
+  bottom: 5.25rem;
+  right: 1.25rem;
+  z-index: 1040;
+  border-radius: 2rem;
+  padding: 0.6rem 1.1rem;
+  background-color: #141414;
+  color: #ffffff;
+  border: 2px solid var(--color-gold-accent);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+}
+
+.floating-ia-panel {
+  position: fixed;
+  bottom: 9rem;
+  right: 1.25rem;
+  z-index: 1050;
+  width: min(390px, calc(100vw - 2rem));
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.85rem;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+}
+
+.floating-a11y-btn {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 1040;
+  border-radius: 2rem;
+  padding: 0.55rem 1rem;
+  background-color: #141414;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+}
+
+.floating-a11y-panel {
+  position: fixed;
+  bottom: 5rem;
+  left: 1.25rem;
+  z-index: 1050;
+  width: min(340px, calc(100vw - 2rem));
+  background-color: #ffffff;
+  border: 2px solid #141414;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+/* Modos de Accesibilidad WCAG 2.1 (punto 3A.o) */
+body.a11y-high-contrast {
+  --color-bg: #000000;
+  --color-bg-soft: #121212;
+  --color-text: #ffffff;
+  --color-text-muted: #e0e0e0;
+  --color-gold-text: #ffd700;
+  --color-gold-bg: #ffd700;
+  --color-border: #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.a11y-high-contrast .card,
+body.a11y-high-contrast .obra-card,
+body.a11y-high-contrast .site-header,
+body.a11y-high-contrast .bg-white,
+body.a11y-high-contrast .bg-light,
+body.a11y-high-contrast .bg-soft,
+body.a11y-high-contrast .floating-a11y-panel,
+body.a11y-high-contrast .floating-ia-panel {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+body.a11y-high-contrast h1,
+body.a11y-high-contrast h2,
+body.a11y-high-contrast h3,
+body.a11y-high-contrast h4,
+body.a11y-high-contrast p,
+body.a11y-high-contrast span,
+body.a11y-high-contrast label,
+body.a11y-high-contrast td,
+body.a11y-high-contrast th,
+body.a11y-high-contrast .text-muted,
+body.a11y-high-contrast .nav-link-prisma {
+  color: #ffffff !important;
+}
+
+body.a11y-high-contrast .btn-gold {
+  background-color: #ffd700 !important;
+  color: #000000 !important;
+  border-color: #ffd700 !important;
+}
+
+body.a11y-dyslexia-font,
+body.a11y-dyslexia-font h1,
+body.a11y-dyslexia-font h2,
+body.a11y-dyslexia-font h3,
+body.a11y-dyslexia-font h4 {
+  font-family: Verdana, Tahoma, "Trebuchet MS", sans-serif !important;
+  letter-spacing: 0.04em;
+  word-spacing: 0.12em;
+  line-height: 1.8;
+}
+
+body.a11y-highlight-links a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2.5px !important;
+  background-color: rgba(255, 215, 0, 0.22);
+}
+
+body.a11y-pause-animations *,
+body.a11y-pause-animations *::before,
+body.a11y-pause-animations *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Impresión de factura en PDF (Ctrl+P / window.print) */
+@media print {
+  .no-print,
+  .site-header,
+  .site-footer,
+  .floating-whatsapp,
+  .floating-ia-btn,
+  .floating-a11y-btn {
+    display: none !important;
+  }
+  body {
+    background-color: #ffffff !important;
+  }
+}

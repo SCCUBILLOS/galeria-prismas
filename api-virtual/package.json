@@ -1,0 +1,12 @@
+{
+  "name": "galeria-prismas-api-virtual",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API virtual de desarrolladores con json-server en puerto 5000",
+  "scripts": {
+    "dev": "json-server --watch db.json --port 5000 --host 0.0.0.0"
+  },
+  "dependencies": {
+    "json-server": "0.17.4"
+  }
+}

@@ -1,0 +1,238 @@
+// Esquema de Base de Datos de Galería Prismas (SQLite + Prisma ORM)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id           Int      @id @default(autoincrement())
+  nombre       String
+  correo       String   @unique
+  passwordHash String
+  rol          String   @default("ADMIN")
+  creadoEn     DateTime @default(now())
+}
+
+model Categoria {
+  id          Int      @id @default(autoincrement())
+  nombre      String   @unique
+  slug        String   @unique
+  descripcion String
+  icono       String   @default("bi-palette")
+  obras       Obra[]
+}
+
+model Artista {
+  id           Int      @id @default(autoincrement())
+  nombre       String
+  slug         String   @unique
+  pais         String   @default("Colombia")
+  ciudad       String   @default("Bogotá")
+  biografia    String
+  trayectoria  String
+  estilo       String
+  fotoUrl      String
+  correo       String?
+  destacado    Boolean  @default(true)
+  obras        Obra[]
+  creadoEn     DateTime @default(now())
+}
+
+model Obra {
+  id                Int                    @id @default(autoincrement())
+  titulo            String
+  slug              String                 @unique
+  codigo            String                 @unique
+  tecnica           String                 // Óleo, Acrílico, Escultura, Digital, Fotografía
+  estilo            String                 // Contemporáneo, Abstracto, Realismo, Minimalista, Expresionista
+  tamano            String                 // Pequeño, Mediano, Grande
+  dimensiones       String                 // ej. "80 x 100 cm"
+  anio              Int                    @default(2026)
+  precio            Int                    // En pesos colombianos (COP)
+  stock             Int                    @default(1)
+  stockMinimo       Int                    @default(1)
+  esUnica           Boolean                @default(true)
+  estado            String                 @default("Disponible") // Disponible | Vendida
+  destacada         Boolean                @default(false)
+  descripcion       String
+  historiaCuraduria String
+  imagenUrl         String
+  espacioSugerido   String                 @default("Sala principal o estudio")
+  categoriaId       Int
+  categoria         Categoria              @relation(fields: [categoriaId], references: [id])
+  artistaId         Int
+  artista           Artista                @relation(fields: [artistaId], references: [id])
+  itemsPedido       DetallePedido[]
+  movimientos       MovimientoInventario[]
+  creadoEn          DateTime               @default(now())
+}
+
+model MovimientoInventario {
+  id            Int      @id @default(autoincrement())
+  obraId        Int
+  obra          Obra     @relation(fields: [obraId], references: [id], onDelete: Cascade)
+  tipo          String   // ENTRADA | SALIDA | AJUSTE
+  cantidad      Int
+  stockAnterior Int
+  stockNuevo    Int
+  motivo        String
+  usuario       String   @default("Administrador")
+  fecha         DateTime @default(now())
+}
+
+model Exposicion {
+  id              Int                 @id @default(autoincrement())
+  titulo          String
+  slug            String              @unique
+  subtitulo       String
+  descripcion     String
+  curador         String
+  fechaInicio     String
+  fechaFin        String
+  horario         String
+  sala            String
+  estado          String              // Próximo | En curso | Finalizado
+  cupoMaximo      Int                 @default(80)
+  cuposDisponibles Int                @default(80)
+  precioEntrada   Int                 @default(0) // 0 = Entrada libre con reserva
+  imagenUrl       String
+  reservas        ReservaExposicion[]
+  creadoEn        DateTime            @default(now())
+}
+
+model ReservaExposicion {
+  id               Int        @id @default(autoincrement())
+  codigoReserva    String     @unique
+  exposicionId     Int
+  exposicion       Exposicion @relation(fields: [exposicionId], references: [id], onDelete: Cascade)
+  nombreAsistente  String
+  documento        String
+  correo           String
+  celular          String
+  fechaVisita      String
+  horaVisita       String
+  cantidadEntradas Int        @default(1)
+  aceptaDatos      Boolean    @default(true)
+  creadoEn         DateTime   @default(now())
+}
+
+model Curso {
+  id               Int                @id @default(autoincrement())
+  titulo           String
+  slug             String             @unique
+  tecnica          String             // Óleo, Acrílico, Escultura, Digital, Fotografía
+  nivel            String             // Principiante | Intermedio | Avanzado
+  modalidad        String             // Presencial | Virtual
+  instructor       String
+  bioInstructor    String
+  horario          String
+  duracion         String
+  fechaInicio      String
+  precio           Int
+  cuposTotales     Int                @default(15)
+  cuposDisponibles Int                @default(15)
+  materiales       String
+  temario          String
+  descripcion      String
+  imagenUrl        String
+  inscripciones    InscripcionCurso[]
+  creadoEn         DateTime           @default(now())
+}
+
+model InscripcionCurso {
+  id                  Int      @id @default(autoincrement())
+  codigoInscripcion   String   @unique
+  cursoId             Int
+  curso               Curso    @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  nombreEstudiante    String
+  documento           String
+  correo              String
+  celular             String
+  experienciaPrevia   String   @default("Ninguna")
+  motivacion          String?
+  estado              String   @default("Confirmada")
+  aceptaDatos         Boolean  @default(true)
+  creadoEn            DateTime @default(now())
+}
+
+model Cliente {
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  documento String   @unique
+  correo    String
+  celular   String
+  direccion String
+  ciudad    String   @default("Bogotá")
+  creadoEn  DateTime @default(now())
+  pedidos   Pedido[]
+}
+
+model Proveedor {
+  id        Int      @id @default(autoincrement())
+  nombre    String
+  nit       String   @unique
+  contacto  String
+  correo    String
+  celular   String
+  insumo    String   // Marcos, Lienzos, Pigmentos, Transporte especializado
+  ciudad    String   @default("Bogotá")
+  creadoEn  DateTime @default(now())
+}
+
+model Pedido {
+  id              Int             @id @default(autoincrement())
+  numeroFactura   String          @unique
+  clienteId       Int?
+  cliente         Cliente?        @relation(fields: [clienteId], references: [id])
+  nombreCliente   String
+  documentoCliente String
+  correoCliente   String
+  celularCliente  String
+  direccionEnvio  String
+  ciudadEnvio     String
+  notasEnvio      String?
+  metodoPago      String          // TARJETA | PSE | NEQUI
+  ultimos4Tarjeta String?
+  estadoPago      String          @default("APROBADO")
+  subtotal        Int
+  iva             Int             // 19 %
+  costoEnvio      Int             @default(0)
+  total           Int
+  aceptaDatos     Boolean         @default(true)
+  fecha           DateTime        @default(now())
+  detalles        DetallePedido[]
+}
+
+model DetallePedido {
+  id             Int    @id @default(autoincrement())
+  pedidoId       Int
+  pedido         Pedido @relation(fields: [pedidoId], references: [id], onDelete: Cascade)
+  obraId         Int
+  obra           Obra   @relation(fields: [obraId], references: [id])
+  tituloObra     String
+  cantidad       Int
+  precioUnitario Int
+  subtotal       Int
+}
+
+model Pqr {
+  id              Int       @id @default(autoincrement())
+  radicado        String    @unique
+  tipo            String    // Petición | Queja | Reclamo | Sugerencia
+  nombre          String
+  documento       String
+  correo          String
+  celular         String
+  asunto          String
+  mensaje         String
+  estado          String    @default("Radicada") // Radicada | En trámite | Resuelta
+  respuesta       String?
+  fechaRespuesta  DateTime?
+  aceptaDatos     Boolean   @default(true)
+  creadoEn        DateTime  @default(now())
+}

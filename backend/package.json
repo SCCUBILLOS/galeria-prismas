@@ -1,0 +1,37 @@
+{
+  "name": "galeria-prismas-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API REST de Galería Prismas en Express.js + Prisma ORM + SQLite",
+  "main": "src/server.js",
+  "prisma": {
+    "schema": "prisma/schema.prisma",
+    "seed": "node prisma/seed.js"
+  },
+  "scripts": {
+    "setup-db": "node scripts/setup-db.js",
+    "migrate-init": "npx prisma migrate dev --name init_galeria_prismas",
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "seed": "node prisma/seed.js",
+    "reset-db": "npx prisma migrate reset --force",
+    "test": "jest --runInBand --forceExit"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "express-validator": "^7.2.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "prisma": "^5.22.0",
+    "supertest": "^7.0.0"
+  }
+}
