@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="Silencio en la Candelaria — Lucía Mendoza">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e7e5e4"/>
+      <stop offset="55%" stop-color="#a8a29e"/>
+      <stop offset="100%" stop-color="#292524"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="canvasTex" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="1.2" result="light">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+      <feBlend in="SourceGraphic" in2="light" mode="multiply"/>
+    </filter>
+    <linearGradient id="goldFrame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#8A6516"/>
+      <stop offset="100%" stop-color="#5A400C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pared de galería con iluminación cenital -->
+  <rect width="900" height="700" fill="#eae5dc"/>
+  <radialGradient id="wallSpot" cx="50%" cy="38%" r="65%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#dcd5c9" stop-opacity="0.95"/>
+  </radialGradient>
+  <rect width="900" height="700" fill="url(#wallSpot)"/>
+
+  <!-- Marco museográfico exterior -->
+  <g filter="url(#shadow)">
+    <rect x="65" y="36" width="770" height="554" rx="4" fill="#1b1b1b" stroke="url(#goldFrame)" stroke-width="4"/>
+    <!-- Paspartú / Bisel interior -->
+    <rect x="85" y="56" width="730" height="514" fill="#f7f4ee" stroke="#d2cabb" stroke-width="2"/>
+    <!-- Lienzo principal de la obra -->
+    <svg x="105" y="74" width="690" height="478" viewBox="0 0 690 478">
+      <rect width="690" height="478" fill="url(#bg)"/>
+      
+      <!-- Perspectiva colonial de La Candelaria en blanco y negro cálido -->
+      <!-- Fachada colonial izquierda con balcones de madera -->
+      <polygon points="0,0 265,130 265,375 0,478" fill="#44403c"/>
+      <rect x="55" y="160" width="60" height="95" fill="#1c1917" stroke="#d6d3d1" stroke-width="3"/>
+      <rect x="45" y="230" width="80" height="28" fill="none" stroke="#e7e5e4" stroke-width="3"/>
+      <rect x="165" y="190" width="42" height="75" fill="#1c1917" stroke="#d6d3d1" stroke-width="2"/>
+      <!-- Fachada colonial derecha -->
+      <polygon points="690,0 425,130 425,375 690,478" fill="#57534e"/>
+      <rect x="485" y="185" width="45" height="80" fill="#1c1917" stroke="#d6d3d1" stroke-width="2"/>
+      <rect x="575" y="155" width="62" height="100" fill="#1c1917" stroke="#d6d3d1" stroke-width="3"/>
+      <!-- Aleros coloniales -->
+      <line x1="0" y1="45" x2="275" y2="140" stroke="#1c1917" stroke-width="12"/>
+      <line x1="690" y1="45" x2="415" y2="140" stroke="#1c1917" stroke-width="12"/>
+      <!-- Calle empedrada con contraluz matinal -->
+      <polygon points="265,375 425,375 690,478 0,478" fill="#78716c"/>
+      <g stroke="#d6d3d1" stroke-width="1.5" opacity="0.65">
+        <line x1="345" y1="375" x2="345" y2="478"/>
+        <line x1="230" y1="400" x2="460" y2="400"/>
+        <line x1="160" y1="430" x2="530" y2="430"/>
+        <line x1="70" y1="460" x2="620" y2="460"/>
+      </g>
+      <!-- Farol colonial -->
+      <circle cx="240" cy="175" r="10" fill="#fef3c7"/>
+    
+      <!-- Firma sutil en esquina del lienzo -->
+      <text x="672" y="464" font-family="Georgia, serif" font-size="12" font-style="italic" fill="rgba(255,255,255,0.75)" text-anchor="end">Lucía Mendoza</text>
+    </svg>
+  </g>
+
+  <!-- Placa curatorial de museo -->
+  <g transform="translate(180, 610)">
+    <rect width="540" height="68" rx="6" fill="#181818" stroke="#8A6516" stroke-width="1.8"/>
+    <text x="270" y="27" font-family="Georgia, 'Playfair Display', serif" font-size="19" font-weight="bold" fill="#F7F5F0" text-anchor="middle">Silencio en la Candelaria</text>
+    <text x="270" y="50" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#D4AF37" text-anchor="middle">Lucía Mendoza  ·  Fotografía en papel baritado (40 x 60 cm)  ·  GP-OBR-010</text>
+  </g>
+</svg>

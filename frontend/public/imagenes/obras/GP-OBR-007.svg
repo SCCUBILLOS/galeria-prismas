@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="Memoria del Río Magdalena — Camila Obregón">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7f1d1d"/>
+      <stop offset="45%" stop-color="#ea580c"/>
+      <stop offset="55%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#451a03"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="canvasTex" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="1.2" result="light">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+      <feBlend in="SourceGraphic" in2="light" mode="multiply"/>
+    </filter>
+    <linearGradient id="goldFrame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#8A6516"/>
+      <stop offset="100%" stop-color="#5A400C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pared de galería con iluminación cenital -->
+  <rect width="900" height="700" fill="#eae5dc"/>
+  <radialGradient id="wallSpot" cx="50%" cy="38%" r="65%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#dcd5c9" stop-opacity="0.95"/>
+  </radialGradient>
+  <rect width="900" height="700" fill="url(#wallSpot)"/>
+
+  <!-- Marco museográfico exterior -->
+  <g filter="url(#shadow)">
+    <rect x="65" y="36" width="770" height="554" rx="4" fill="#1b1b1b" stroke="url(#goldFrame)" stroke-width="4"/>
+    <!-- Paspartú / Bisel interior -->
+    <rect x="85" y="56" width="730" height="514" fill="#f7f4ee" stroke="#d2cabb" stroke-width="2"/>
+    <!-- Lienzo principal de la obra -->
+    <svg x="105" y="74" width="690" height="478" viewBox="0 0 690 478">
+      <rect width="690" height="478" fill="url(#bg)"/>
+      
+      <circle cx="170" cy="180" r="48" fill="#fef08a" opacity="0.85"/>
+      <!-- Ribera momposina al fondo -->
+      <path d="M0 260 Q180 230 390 255 T690 245 L690 270 L0 270 Z" fill="#291509"/>
+      <!-- Chalupa tradicional y pescador lanzando atarraya -->
+      <g transform="translate(260, 275)">
+        <path d="M0 45 Q95 75 210 40 L185 65 Q95 85 25 65 Z" fill="#1c0d06"/>
+        <!-- Silueta pescador -->
+        <circle cx="135" cy="5" r="9" fill="#1c0d06"/>
+        <path d="M135 14 L125 48 L148 48 Z" fill="#1c0d06"/>
+        <!-- Atarraya abierta en el aire -->
+        <path d="M130 18 Q55 -45 -20 35" stroke="#fef08a" stroke-width="2" fill="none"/>
+        <path d="M130 18 L55 -5 M130 18 L20 12 M130 18 L85 -15 M-20 35 Q35 20 90 38" stroke="#fde047" stroke-width="1.2" stroke-dasharray="4,3" fill="none"/>
+      </g>
+      <!-- Ondas del río Magdalena -->
+      <path d="M60 390 Q210 375 370 395 T630 385" stroke="#fde047" stroke-width="3" fill="none" opacity="0.6"/>
+    
+      <!-- Firma sutil en esquina del lienzo -->
+      <text x="672" y="464" font-family="Georgia, serif" font-size="12" font-style="italic" fill="rgba(255,255,255,0.75)" text-anchor="end">Camila Obregón</text>
+    </svg>
+  </g>
+
+  <!-- Placa curatorial de museo -->
+  <g transform="translate(180, 610)">
+    <rect width="540" height="68" rx="6" fill="#181818" stroke="#8A6516" stroke-width="1.8"/>
+    <text x="270" y="27" font-family="Georgia, 'Playfair Display', serif" font-size="19" font-weight="bold" fill="#F7F5F0" text-anchor="middle">Memoria del Río Magdalena</text>
+    <text x="270" y="50" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#D4AF37" text-anchor="middle">Camila Obregón  ·  Óleo sobre lino (70 x 90 cm)  ·  GP-OBR-007</text>
+  </g>
+</svg>

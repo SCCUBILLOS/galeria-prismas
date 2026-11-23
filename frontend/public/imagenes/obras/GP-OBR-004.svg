@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="Equilibrio en Piedra Barichara — Sebastián Duarte">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#3d352e"/>
+      <stop offset="100%" stop-color="#171412"/>
+    </radialGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="canvasTex" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="1.2" result="light">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+      <feBlend in="SourceGraphic" in2="light" mode="multiply"/>
+    </filter>
+    <linearGradient id="goldFrame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#8A6516"/>
+      <stop offset="100%" stop-color="#5A400C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pared de galería con iluminación cenital -->
+  <rect width="900" height="700" fill="#eae5dc"/>
+  <radialGradient id="wallSpot" cx="50%" cy="38%" r="65%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#dcd5c9" stop-opacity="0.95"/>
+  </radialGradient>
+  <rect width="900" height="700" fill="url(#wallSpot)"/>
+
+  <!-- Marco museográfico exterior -->
+  <g filter="url(#shadow)">
+    <rect x="65" y="36" width="770" height="554" rx="4" fill="#1b1b1b" stroke="url(#goldFrame)" stroke-width="4"/>
+    <!-- Paspartú / Bisel interior -->
+    <rect x="85" y="56" width="730" height="514" fill="#f7f4ee" stroke="#d2cabb" stroke-width="2"/>
+    <!-- Lienzo principal de la obra -->
+    <svg x="105" y="74" width="690" height="478" viewBox="0 0 690 478">
+      <rect width="690" height="478" fill="url(#bg)"/>
+      
+      <!-- Pedestal de roble macizo de galería -->
+      <polygon points="225,380 465,380 495,478 195,478" fill="#5c4033" stroke="#3e2723" stroke-width="2"/>
+      <rect x="215" y="366" width="260" height="16" rx="2" fill="#8d6e63"/>
+      <!-- Bloque monolítico inferior en piedra amarilla de Barichara -->
+      <polygon points="260,366 430,366 410,250 280,250" fill="#d4a359" stroke="#a67832" stroke-width="2"/>
+      <polygon points="430,366 452,350 432,238 410,250" fill="#a67832"/>
+      <!-- Aro de bronce patinado en equilibrio central -->
+      <circle cx="348" cy="198" r="56" fill="none" stroke="#cd7f32" stroke-width="18"/>
+      <circle cx="348" cy="198" r="56" fill="none" stroke="#ffd166" stroke-width="3" opacity="0.6"/>
+      <!-- Bloque superior en voladizo de piedra Barichara -->
+      <polygon points="245,142 465,112 445,68 235,96" fill="#e6b86e" stroke="#b5853b" stroke-width="2"/>
+      <!-- Sombra proyectada -->
+      <ellipse cx="345" cy="366" rx="95" ry="7" fill="rgba(0,0,0,0.45)"/>
+    
+      <!-- Firma sutil en esquina del lienzo -->
+      <text x="672" y="464" font-family="Georgia, serif" font-size="12" font-style="italic" fill="rgba(255,255,255,0.75)" text-anchor="end">Sebastián Duarte</text>
+    </svg>
+  </g>
+
+  <!-- Placa curatorial de museo -->
+  <g transform="translate(180, 610)">
+    <rect width="540" height="68" rx="6" fill="#181818" stroke="#8A6516" stroke-width="1.8"/>
+    <text x="270" y="27" font-family="Georgia, 'Playfair Display', serif" font-size="19" font-weight="bold" fill="#F7F5F0" text-anchor="middle">Equilibrio en Piedra Barichara</text>
+    <text x="270" y="50" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#D4AF37" text-anchor="middle">Sebastián Duarte  ·  Escultura en piedra arenisca y bronce (45 x 30 x 28 cm)  ·  GP-OBR-004</text>
+  </g>
+</svg>

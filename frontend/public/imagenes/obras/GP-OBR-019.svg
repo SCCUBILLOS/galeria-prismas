@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="Cordillera Central en Azul Profundo — Valentina Restrepo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#172554"/>
+      <stop offset="55%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="canvasTex" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="1.2" result="light">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+      <feBlend in="SourceGraphic" in2="light" mode="multiply"/>
+    </filter>
+    <linearGradient id="goldFrame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#8A6516"/>
+      <stop offset="100%" stop-color="#5A400C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pared de galería con iluminación cenital -->
+  <rect width="900" height="700" fill="#eae5dc"/>
+  <radialGradient id="wallSpot" cx="50%" cy="38%" r="65%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#dcd5c9" stop-opacity="0.95"/>
+  </radialGradient>
+  <rect width="900" height="700" fill="url(#wallSpot)"/>
+
+  <!-- Marco museográfico exterior -->
+  <g filter="url(#shadow)">
+    <rect x="65" y="36" width="770" height="554" rx="4" fill="#1b1b1b" stroke="url(#goldFrame)" stroke-width="4"/>
+    <!-- Paspartú / Bisel interior -->
+    <rect x="85" y="56" width="730" height="514" fill="#f7f4ee" stroke="#d2cabb" stroke-width="2"/>
+    <!-- Lienzo principal de la obra -->
+    <svg x="105" y="74" width="690" height="478" viewBox="0 0 690 478">
+      <rect width="690" height="478" fill="url(#bg)"/>
+      
+      <!-- Cumbres nevadas de Los Nevados en azul profundo y plata -->
+      <polygon points="0,350 165,135 320,285 495,115 690,320 690,478 0,478" fill="#1e40af"/>
+      <!-- Nieve perpetua en las cumbres -->
+      <polygon points="165,135 225,200 185,195 165,220 135,190 112,205" fill="#f8fafc"/>
+      <polygon points="495,115 568,195 520,185 495,215 465,180 432,195" fill="#f1f5f9"/>
+      <!-- División sutil de díptico en el centro -->
+      <line x1="345" y1="0" x2="345" y2="478" stroke="#090d16" stroke-width="6"/>
+    
+      <!-- Firma sutil en esquina del lienzo -->
+      <text x="672" y="464" font-family="Georgia, serif" font-size="12" font-style="italic" fill="rgba(255,255,255,0.75)" text-anchor="end">Valentina Restrepo</text>
+    </svg>
+  </g>
+
+  <!-- Placa curatorial de museo -->
+  <g transform="translate(180, 610)">
+    <rect width="540" height="68" rx="6" fill="#181818" stroke="#8A6516" stroke-width="1.8"/>
+    <text x="270" y="27" font-family="Georgia, 'Playfair Display', serif" font-size="19" font-weight="bold" fill="#F7F5F0" text-anchor="middle">Cordillera Central en Azul Profundo</text>
+    <text x="270" y="50" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#D4AF37" text-anchor="middle">Valentina Restrepo  ·  Díptico al óleo sobre lienzo (110 x 140 cm)  ·  GP-OBR-019</text>
+  </g>
+</svg>

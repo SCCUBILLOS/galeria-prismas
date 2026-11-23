@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="Vértice en Madera de Guayacán — Sebastián Duarte">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#451a03"/>
+      <stop offset="100%" stop-color="#1c0a00"/>
+    </radialGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="canvasTex" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="1.2" result="light">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+      <feBlend in="SourceGraphic" in2="light" mode="multiply"/>
+    </filter>
+    <linearGradient id="goldFrame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#8A6516"/>
+      <stop offset="100%" stop-color="#5A400C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pared de galería con iluminación cenital -->
+  <rect width="900" height="700" fill="#eae5dc"/>
+  <radialGradient id="wallSpot" cx="50%" cy="38%" r="65%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#dcd5c9" stop-opacity="0.95"/>
+  </radialGradient>
+  <rect width="900" height="700" fill="url(#wallSpot)"/>
+
+  <!-- Marco museográfico exterior -->
+  <g filter="url(#shadow)">
+    <rect x="65" y="36" width="770" height="554" rx="4" fill="#1b1b1b" stroke="url(#goldFrame)" stroke-width="4"/>
+    <!-- Paspartú / Bisel interior -->
+    <rect x="85" y="56" width="730" height="514" fill="#f7f4ee" stroke="#d2cabb" stroke-width="2"/>
+    <!-- Lienzo principal de la obra -->
+    <svg x="105" y="74" width="690" height="478" viewBox="0 0 690 478">
+      <rect width="690" height="478" fill="url(#bg)"/>
+      
+      <!-- Pedestal de galería -->
+      <rect x="240" y="395" width="210" height="65" fill="#27272a"/>
+      <!-- Escultura angular tallada en madera de Guayacán con vetas cálidas -->
+      <polygon points="345,65 445,235 375,395 315,395 245,235" fill="#b45309" stroke="#fde68a" stroke-width="2"/>
+      <polygon points="345,65 445,235 375,395 345,395" fill="#92400e"/>
+      <path d="M290 220 Q345 180 400 220 M280 270 Q345 230 410 270 M305 325 Q345 295 385 325" stroke="#fcd34d" stroke-width="2" fill="none" opacity="0.6"/>
+    
+      <!-- Firma sutil en esquina del lienzo -->
+      <text x="672" y="464" font-family="Georgia, serif" font-size="12" font-style="italic" fill="rgba(255,255,255,0.75)" text-anchor="end">Sebastián Duarte</text>
+    </svg>
+  </g>
+
+  <!-- Placa curatorial de museo -->
+  <g transform="translate(180, 610)">
+    <rect width="540" height="68" rx="6" fill="#181818" stroke="#8A6516" stroke-width="1.8"/>
+    <text x="270" y="27" font-family="Georgia, 'Playfair Display', serif" font-size="19" font-weight="bold" fill="#F7F5F0" text-anchor="middle">Vértice en Madera de Guayacán</text>
+    <text x="270" y="50" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#D4AF37" text-anchor="middle">Sebastián Duarte  ·  Escultura en madera de guayacán (55 x 25 x 25 cm)  ·  GP-OBR-018</text>
+  </g>
+</svg>

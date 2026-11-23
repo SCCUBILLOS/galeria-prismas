@@ -187,7 +187,7 @@ const validarCheckout = [
     .notEmpty()
     .withMessage("La ciudad de envío es obligatoria."),
   body("metodoPago")
-    .isIn(["TARJETA", "PSE", "NEQUI"])
+    .isIn(["TARJETA", "PSE", "NEQUI", "TRANSFERENCIA_QR"])
     .withMessage("Método de pago inválido."),
   body("items")
     .isArray({ min: 1 })

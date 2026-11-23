@@ -19,8 +19,7 @@ const SLIDES_PUBLICITARIOS = [
     titulo: "Atardecer Urbano en Monserrate — Valentina Restrepo",
     descripcion:
       "Óleo sobre lino de gran formato (100 x 120 cm) con certificado curatorial y marquetería flotante incluida.",
-    imagen:
-      "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1400&q=80",
+    imagen: "/imagenes/obras/GP-OBR-001.svg",
     alt: "Pintura al óleo Atardecer Urbano en Monserrate exhibida en la sala principal de Galería Prismas",
     ctaTexto: "Explorar obra destacada",
     ctaRuta: "/obras/detalle/atardecer-urbano-en-monserrate",
@@ -31,9 +30,8 @@ const SLIDES_PUBLICITARIOS = [
     titulo: "Luz de los Andes: Nuevas Miradas del Paisaje",
     descripcion:
       "Recorre 18 obras inéditas de pintura y fotografía sobre la cordillera colombiana. Reserva tu visita en pocos pasos.",
-    imagen:
-      "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1400&q=80",
-    alt: "Visitantes recorriendo la exposición Luz de los Andes en la Sala Bosque Popular",
+    imagen: "/imagenes/exposiciones/exp-1.svg",
+    alt: "Exposición Luz de los Andes en la Sala Bosque Popular",
     ctaTexto: "Reservar entradas gratuitas",
     ctaRuta: "/exposiciones/1",
   },
@@ -43,35 +41,32 @@ const SLIDES_PUBLICITARIOS = [
     titulo: "Fundamentos de Pintura al Óleo — Kit Inicial Incluido",
     descripcion:
       "Horarios flexibles de sábado, niveles claros desde principiante y lista transparente de materiales para estudiantes.",
-    imagen:
-      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1400&q=80",
-    alt: "Taller práctico de pintura al óleo con pinceles, paleta de madera y lienzos en Galería Prismas",
+    imagen: "/imagenes/cursos/cur-1.svg",
+    alt: "Taller práctico de pintura al óleo con pinceles, paleta de madera y círculo cromático en Galería Prismas",
     ctaTexto: "Ver horarios e inscribirme",
     ctaRuta: "/cursos/1",
   },
   {
     id: 4,
     etiqueta: "Escultura Contemporánea · Piezas Únicas",
-    titulo: "Materia y Geometría: Piedra Barichara y Bronce",
+    titulo: "Equilibrio en Piedra Barichara y Bronce — Sebastián Duarte",
     descripcion:
-      "Adquiere esculturas certificadas de Sebastián Duarte con ficha técnica transparente y precios sin intermediarios.",
-    imagen:
-      "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=1400&q=80",
+      "Adquiere esculturas certificadas talladas en piedra de Barichara con ficha técnica transparente y precios sin intermediarios.",
+    imagen: "/imagenes/obras/GP-OBR-004.svg",
     alt: "Escultura tallada en piedra Barichara y bronce sobre pedestal en Galería Prismas",
     ctaTexto: "Ver colección de esculturas",
     ctaRuta: "/obras/Escultura",
   },
   {
     id: 5,
-    etiqueta: "Beneficio Exclusivo Coleccionistas",
-    titulo: "Envío Asegurado de Cortesía en Toda Colombia",
+    etiqueta: "Pasarela de Pagos PrismaPay · Compra en Línea",
+    titulo: "Pasarela de Pagos Certificada: Tarjeta, PSE, Nequi y QR",
     descripcion:
-      "Embalaje museográfico climatizado, factura electrónica con IVA discriminado y asesoría personalizada con Prisma IA.",
-    imagen:
-      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1400&q=80",
-    alt: "Montaje de obras enmarcadas en pared blanca con iluminación museográfica cálida",
-    ctaTexto: "Ir al catálogo completo",
-    ctaRuta: "/obras",
+      "Paga con validación Luhn en tiempo real, simulación bancaria 3D Secure y descarga inmediata de Factura Electrónica en PDF.",
+    imagen: "/imagenes/obras/GP-OBR-002.svg",
+    alt: "Pasarela de pagos electrónica PrismaPay y obra Cartografía Dorada del Altiplano",
+    ctaTexto: "Ir a la Pasarela de Pago",
+    ctaRuta: "/pasarela",
   },
 ];
 

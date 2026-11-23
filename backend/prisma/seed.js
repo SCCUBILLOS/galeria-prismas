@@ -200,7 +200,7 @@ async function main() {
         "Óleo sobre lienzo de lino que captura el tránsito de la luz dorada sobre los cerros orientales de Bogotá tras la lluvia vespertina.",
       historiaCuraduria:
         "Certificado de autenticidad firmado por Valentina Restrepo. Incluye bastidor en cedro inmunizado y marquetería flotante negra.",
-      imagenUrl: "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-001.svg",
       espacioSugerido: "Sala principal o recepción corporativa",
       categoriaId: categorias["pinturas"].id,
       artistaId: artistas["valentina-restrepo"].id,
@@ -224,7 +224,7 @@ async function main() {
         "Composición geométrica en acrílico y laminilla dorada sobre lienzo. Inspirada en los tejidos muiscas y la topografía de la sabana.",
       historiaCuraduria:
         "Obra exhibida en la muestra inaugural de la temporada 2026. Pieza única con barniz UV de conservación.",
-      imagenUrl: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-002.svg",
       espacioSugerido: "Comedor moderno o estudio ejecutivo",
       categoriaId: categorias["pinturas"].id,
       artistaId: artistas["mateo-villamizar"].id,
@@ -248,7 +248,7 @@ async function main() {
         "Fotografía de autor en papel Hahnemühle Photo Rag 308g. Retrata frailejones centenarios emergiendo de la niebla matutina.",
       historiaCuraduria:
         "Edición limitada y numerada de 5 ejemplares firmados por Lucía Mendoza.",
-      imagenUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-003.svg",
       espacioSugerido: "Estudio de lectura o habitación principal",
       categoriaId: categorias["fotografia"].id,
       artistaId: artistas["lucia-mendoza"].id,
@@ -272,7 +272,7 @@ async function main() {
         "Escultura tallada a mano en piedra arenisca amarilla de Barichara con ensamble en bronce patinado.",
       historiaCuraduria:
         "Pieza única tallada directamente por Sebastián Duarte. Incluye pedestal de roble macizo opcional.",
-      imagenUrl: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-004.svg",
       espacioSugerido: "Consola de entrada o biblioteca",
       categoriaId: categorias["esculturas"].id,
       artistaId: artistas["sebastian-duarte"].id,
@@ -296,7 +296,7 @@ async function main() {
         "Paisaje lumínico al óleo que retrata las aguas tranquilas y los manglares del Caribe colombiano al amanecer.",
       historiaCuraduria:
         "Obra seleccionada en curaduría de paisaje contemporáneo colombiano.",
-      imagenUrl: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-005.svg",
       espacioSugerido: "Sala de estar iluminada",
       categoriaId: categorias["pinturas"].id,
       artistaId: artistas["camila-obregon"].id,
@@ -320,7 +320,7 @@ async function main() {
         "Arte generativo impreso en sistema Giclée de 12 tintas pigmentadas a partir de paisajes sonoros de la selva húmeda.",
       historiaCuraduria:
         "Edición seriada con sello seco de Galería Prismas y código QR del audio original.",
-      imagenUrl: "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-006.svg",
       espacioSugerido: "Oficina creativa o estudio musical",
       categoriaId: categorias["arte-digital"].id,
       artistaId: artistas["andres-santamaria"].id,
@@ -344,7 +344,7 @@ async function main() {
         "Estudio pictórico de las chalupas y atarrayas al caer la tarde en Mompox, ejecutado con espátula y pincel fino.",
       historiaCuraduria:
         "Obra original sobre lino preparado artesanalmente.",
-      imagenUrl: "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-007.svg",
       espacioSugerido: "Sala familiar o hall de acceso",
       categoriaId: categorias["pinturas"].id,
       artistaId: artistas["camila-obregon"].id,
@@ -368,7 +368,7 @@ async function main() {
         "Acrílico texturizado con pigmentos naturales de Villa de Leyva y Ráquira sobre bastidor de galería.",
       historiaCuraduria:
         "Pertenece a la serie Tierra y Geometría (2026).",
-      imagenUrl: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-008.svg",
       espacioSugerido: "Comedor o sala contemporánea",
       categoriaId: categorias["pinturas"].id,
       artistaId: artistas["mateo-villamizar"].id,
@@ -392,7 +392,7 @@ async function main() {
         "Escultura vertical en acero corten plegado con pátina cálida estabilizada para interiores o terrazas cubiertas.",
       historiaCuraduria:
         "Obra única soldada y pulida en el taller de Barichara.",
-      imagenUrl: "https://images.unsplash.com/photo-1561839561-b13bcfe95249?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-009.svg",
       espacioSugerido: "Terraza cubierta o doble altura",
       categoriaId: categorias["esculturas"].id,
       artistaId: artistas["sebastian-duarte"].id,
@@ -416,7 +416,7 @@ async function main() {
         "Contraluz matinal en las calles empedradas del centro histórico de Bogotá, impresa en papel baritado de museo.",
       historiaCuraduria:
         "Serie Crónicas de Agua y Piedra, edición numerada.",
-      imagenUrl: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-010.svg",
       espacioSugerido: "Corredor o estudio",
       categoriaId: categorias["fotografia"].id,
       artistaId: artistas["lucia-mendoza"].id,
@@ -440,7 +440,7 @@ async function main() {
         "Luces de ladrillo y asfalto húmedo trabajadas con pincelada suelta en tonos azul de Prusia y ocre dorado.",
       historiaCuraduria:
         "Incluye certificado de autenticidad y marco de madera tipo caja americana.",
-      imagenUrl: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-011.svg",
       espacioSugerido: "Apartamento tipo loft o sala principal",
       categoriaId: categorias["pinturas"].id,
       artistaId: artistas["valentina-restrepo"].id,
@@ -464,7 +464,7 @@ async function main() {
         "Descomposición algorítmica del espectro solar ecuatorial en líneas de alta densidad sobre papel algodón 100 %.",
       historiaCuraduria:
         "Edición limitada de 10 copias firmadas por Andrés Santamaría.",
-      imagenUrl: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-012.svg",
       espacioSugerido: "Oficina moderna o sala minimalista",
       categoriaId: categorias["arte-digital"].id,
       artistaId: artistas["andres-santamaria"].id,
@@ -488,7 +488,7 @@ async function main() {
         "Fundición en bronce a la cera perdida con pátina verde esmeralda y cantos bruñidos al espejo.",
       historiaCuraduria:
         "Último ejemplar disponible de una serie de 3 fundiciones.",
-      imagenUrl: "https://images.unsplash.com/photo-1554188248-986adbb73be4?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-013.svg",
       espacioSugerido: "Escritorio principal o repisa de diseño",
       categoriaId: categorias["esculturas"].id,
       artistaId: artistas["sebastian-duarte"].id,
@@ -512,7 +512,7 @@ async function main() {
         "Interpretación botánica contemporánea de heliconias y orquídeas nativas sobre fondo neutro de lino crudo.",
       historiaCuraduria:
         "Destacado en la categoría de Novedades de la galería.",
-      imagenUrl: "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-014.svg",
       espacioSugerido: "Comedor principal o sala amplia",
       categoriaId: categorias["novedades"].id,
       artistaId: artistas["camila-obregon"].id,
@@ -536,7 +536,7 @@ async function main() {
         "Planos superpuestos en blanco titanio, gris grafito y ocre sobre tabla entelada.",
       historiaCuraduria:
         "Ideal para coleccionistas que inician su acervo personal.",
-      imagenUrl: "https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-015.svg",
       espacioSugerido: "Estudio o habitación",
       categoriaId: categorias["pinturas"].id,
       artistaId: artistas["mateo-villamizar"].id,
@@ -560,7 +560,7 @@ async function main() {
         "Toma panorámica de formato medio con montaje en dibond de aluminio y acrílico antirreflejo.",
       historiaCuraduria:
         "Ganadora de mención en el Salón Nacional de Fotografía Documental.",
-      imagenUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-016.svg",
       espacioSugerido: "Sala de juntas o sala principal",
       categoriaId: categorias["fotografia"].id,
       artistaId: artistas["lucia-mendoza"].id,
@@ -584,7 +584,7 @@ async function main() {
         "Mapa estelar del solsticio en el observatorio de El Infiernito (Villa de Leyva), impreso con tintas minerales.",
       historiaCuraduria:
         "Incluye paspartú libre de ácido de 5 cm.",
-      imagenUrl: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-017.svg",
       espacioSugerido: "Estudio, biblioteca o regalo de colección",
       categoriaId: categorias["arte-digital"].id,
       artistaId: artistas["andres-santamaria"].id,
@@ -608,7 +608,7 @@ async function main() {
         "Madera de guayacán recuperada de derribo natural, tallada y tratada con cera de abejas pura.",
       historiaCuraduria:
         "Pieza certificada de manejo forestal responsable.",
-      imagenUrl: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-018.svg",
       espacioSugerido: "Sala de estar cálida",
       categoriaId: categorias["esculturas"].id,
       artistaId: artistas["sebastian-duarte"].id,
@@ -632,7 +632,7 @@ async function main() {
         "Díptico monumental al óleo sobre las cumbres nevadas del Parque Nacional Natural Los Nevados.",
       historiaCuraduria:
         "Adquirida para colección privada en Bogotá (Febrero 2026).",
-      imagenUrl: "https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-019.svg",
       espacioSugerido: "Muro principal de gran formato",
       categoriaId: categorias["pinturas"].id,
       artistaId: artistas["valentina-restrepo"].id,
@@ -656,7 +656,7 @@ async function main() {
         "Tonos rosados y blancos de las charcas de sal en La Guajira bajo el sol cenital.",
       historiaCuraduria:
         "Impresión Fine Art certificada de la colección Novedades 2026.",
-      imagenUrl: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-020.svg",
       espacioSugerido: "Espacios minimalistas y luminosos",
       categoriaId: categorias["novedades"].id,
       artistaId: artistas["lucia-mendoza"].id,
@@ -680,7 +680,7 @@ async function main() {
         "Obra intimista al óleo sobre las laderas verdes del Quindío entre cafetales y guaduales.",
       historiaCuraduria:
         "Pintada del natural durante residencia artística en Filandia.",
-      imagenUrl: "https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-021.svg",
       espacioSugerido: "Rincón de lectura o comedor",
       categoriaId: categorias["pinturas"].id,
       artistaId: artistas["valentina-restrepo"].id,
@@ -704,7 +704,7 @@ async function main() {
         "Contraste de bloques mate en carbón mineral con líneas de pan de oro bruñido.",
       historiaCuraduria:
         "Obra enmarcada en roble ahumado lista para colgar.",
-      imagenUrl: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/obras/GP-OBR-022.svg",
       espacioSugerido: "Sala contemporánea o despacho",
       categoriaId: categorias["novedades"].id,
       artistaId: artistas["mateo-villamizar"].id,
@@ -745,7 +745,7 @@ async function main() {
       cupoMaximo: 80,
       cuposDisponibles: 62,
       precioEntrada: 0,
-      imagenUrl: "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1000&q=80",
+      imagenUrl: "/imagenes/exposiciones/exp-1.svg",
     },
     {
       titulo: "Materia y Geometría: Diálogos entre Piedra y Acero",
@@ -762,7 +762,7 @@ async function main() {
       cupoMaximo: 60,
       cuposDisponibles: 55,
       precioEntrada: 0,
-      imagenUrl: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1000&q=80",
+      imagenUrl: "/imagenes/exposiciones/exp-2.svg",
     },
     {
       titulo: "Cartografías Sonoras del Chocó Biogeográfico",
@@ -779,7 +779,7 @@ async function main() {
       cupoMaximo: 40,
       cuposDisponibles: 38,
       precioEntrada: 15000,
-      imagenUrl: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=1000&q=80",
+      imagenUrl: "/imagenes/exposiciones/exp-3.svg",
     },
     {
       titulo: "Memorias Anfibias del Caribe",
@@ -796,7 +796,7 @@ async function main() {
       cupoMaximo: 80,
       cuposDisponibles: 0,
       precioEntrada: 0,
-      imagenUrl: "https://images.unsplash.com/photo-1577720580479-7d839d829c73?auto=format&fit=crop&w=1000&q=80",
+      imagenUrl: "/imagenes/exposiciones/exp-4.svg",
     },
   ];
 
@@ -829,7 +829,7 @@ async function main() {
         "Módulo 1: Preparación del soporte y manejo seguro de solventes sin olor. Módulo 2: Círculo cromático y mezclas de color reales. Módulo 3: Luz, sombra y volumen (claroscuro). Módulo 4: Empaste, veladuras y proyecto final guiado.",
       descripcion:
         "Ideal para estudiantes como Valeria que desean aprender óleo desde cero con acompañamiento paso a paso, horarios de fin de semana y materiales claros.",
-      imagenUrl: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/cursos/cur-1.svg",
     },
     {
       titulo: "Acrílico Experimental, Texturas Minerales y Pan de Oro",
@@ -852,7 +852,7 @@ async function main() {
         "Módulo 1: Composición áurea y retículas. Módulo 2: Cargas minerales y pastas de relieve. Módulo 3: Aplicación de hojilla dorada y barnizado de conservación.",
       descripcion:
         "Taller vespertino para estudiantes y profesionales que buscan horarios flexibles entre semana y técnicas contemporáneas de abstracción.",
-      imagenUrl: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/cursos/cur-2.svg",
     },
     {
       titulo: "Retrato Lumínico y Paisaje en Acuarela y Gouache",
@@ -875,7 +875,7 @@ async function main() {
         "Módulo 1: Control de humedad y degradados. Módulo 2: Paleta botánica tropical. Módulo 3: Atmósfera y reflejos en agua. Módulo 4: Composición final.",
       descripcion:
         "Modalidad 100 % virtual con sesiones grabadas para quienes requieren máxima flexibilidad de horario sin desplazarse.",
-      imagenUrl: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/cursos/cur-3.svg",
     },
     {
       titulo: "Modelado Escultórico en Arcilla y Vaciado Básico",
@@ -898,7 +898,7 @@ async function main() {
         "Módulo 1: Estructura interna y proporciones. Módulo 2: Modelado orgánico y constructivo. Módulo 3: Ahuecado y texturas. Módulo 4: Acabados y pátinas en frío.",
       descripcion:
         "Aprende volumen tridimensional en el patio-taller de la galería con todos los insumos pesados incluidos.",
-      imagenUrl: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/cursos/cur-4.svg",
     },
     {
       titulo: "Fotografía de Autor, Iluminación Natural y Curaduría de Portafolio",
@@ -921,7 +921,7 @@ async function main() {
         "Módulo 1: Narrativa visual y ensayo fotográfico. Módulo 2: Medición puntual y luz natural. Módulo 3: Revelado digital para impresión Fine Art. Módulo 4: Montaje y statement de artista.",
       descripcion:
         "Dirigido a fotógrafos y artistas visuales que desean preparar su serie para convocatorias y exposiciones en galería.",
-      imagenUrl: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: "/imagenes/cursos/cur-5.svg",
     },
   ];
 

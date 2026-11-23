@@ -131,6 +131,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/pasarela" className="text-warning fw-semibold text-decoration-none">
+                  <i className="bi bi-credit-card-2-front me-1" aria-hidden="true"></i>
+                  Pasarela de Pagos (PrismaPay)
+                </Link>
+              </li>
+              <li>
                 <Link to="/admin/login" className="text-light text-decoration-none">
                   Administración e Inventario
                 </Link>

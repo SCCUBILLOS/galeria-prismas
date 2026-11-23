@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="Cartografía Dorada del Altiplano — Mateo Villamizar">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="canvasTex" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="1.2" result="light">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+      <feBlend in="SourceGraphic" in2="light" mode="multiply"/>
+    </filter>
+    <linearGradient id="goldFrame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#8A6516"/>
+      <stop offset="100%" stop-color="#5A400C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pared de galería con iluminación cenital -->
+  <rect width="900" height="700" fill="#eae5dc"/>
+  <radialGradient id="wallSpot" cx="50%" cy="38%" r="65%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#dcd5c9" stop-opacity="0.95"/>
+  </radialGradient>
+  <rect width="900" height="700" fill="url(#wallSpot)"/>
+
+  <!-- Marco museográfico exterior -->
+  <g filter="url(#shadow)">
+    <rect x="65" y="36" width="770" height="554" rx="4" fill="#1b1b1b" stroke="url(#goldFrame)" stroke-width="4"/>
+    <!-- Paspartú / Bisel interior -->
+    <rect x="85" y="56" width="730" height="514" fill="#f7f4ee" stroke="#d2cabb" stroke-width="2"/>
+    <!-- Lienzo principal de la obra -->
+    <svg x="105" y="74" width="690" height="478" viewBox="0 0 690 478">
+      <rect width="690" height="478" fill="url(#bg)"/>
+      
+      <!-- Retícula cartográfica precolombina en pan de oro -->
+      <g stroke="#D4AF37" fill="none" opacity="0.85">
+        <circle cx="345" cy="239" r="185" stroke-width="3"/>
+        <circle cx="345" cy="239" r="145" stroke-width="1.5" stroke-dasharray="10,6"/>
+        <circle cx="345" cy="239" r="105" stroke-width="2.5"/>
+        <circle cx="345" cy="239" r="62" stroke-width="4"/>
+        <circle cx="345" cy="239" r="22" fill="#D4AF37"/>
+        <line x1="40" y1="239" x2="650" y2="239" stroke-width="1.5"/>
+        <line x1="345" y1="20" x2="345" y2="458" stroke-width="1.5"/>
+        <line x1="130" y1="60" x2="560" y2="418" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="560" y1="60" x2="130" y2="418" stroke-width="1" stroke-dasharray="5,5"/>
+      </g>
+      <!-- Bloques geométricos constructivistas y tejidos muiscas -->
+      <polygon points="345,54 495,239 345,424 195,239" fill="none" stroke="#F3E5AB" stroke-width="3.5"/>
+      <rect x="85" y="85" width="110" height="110" fill="#8A6516" opacity="0.55" stroke="#D4AF37" stroke-width="2"/>
+      <rect x="495" y="280" width="115" height="115" fill="#b45309" opacity="0.45" stroke="#F3E5AB" stroke-width="2"/>
+      <path d="M85 360 L195 360 L195 415 L140 415 L140 388 L85 388 Z" fill="#D4AF37" opacity="0.8"/>
+      <path d="M495 95 L605 95 L605 150 L550 150 L550 120 L495 120 Z" fill="#D4AF37" opacity="0.8"/>
+    
+      <!-- Firma sutil en esquina del lienzo -->
+      <text x="672" y="464" font-family="Georgia, serif" font-size="12" font-style="italic" fill="rgba(255,255,255,0.75)" text-anchor="end">Mateo Villamizar</text>
+    </svg>
+  </g>
+
+  <!-- Placa curatorial de museo -->
+  <g transform="translate(180, 610)">
+    <rect width="540" height="68" rx="6" fill="#181818" stroke="#8A6516" stroke-width="1.8"/>
+    <text x="270" y="27" font-family="Georgia, 'Playfair Display', serif" font-size="19" font-weight="bold" fill="#F7F5F0" text-anchor="middle">Cartografía Dorada del Altiplano</text>
+    <text x="270" y="50" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#D4AF37" text-anchor="middle">Mateo Villamizar  ·  Acrílico y laminilla dorada (90 x 110 cm)  ·  GP-OBR-002</text>
+  </g>
+</svg>

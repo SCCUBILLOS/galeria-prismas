@@ -150,6 +150,12 @@ const Header = () => {
                   Nosotros
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/pasarela" className="nav-link-prisma text-gold fw-bold" onClick={() => setMenuAbierto(false)}>
+                  <i className="bi bi-credit-card-2-front me-1" aria-hidden="true"></i>
+                  Pasarela de Pago
+                </NavLink>
+              </li>
             </ul>
 
             {/* Buscador global con autocompletado */}
