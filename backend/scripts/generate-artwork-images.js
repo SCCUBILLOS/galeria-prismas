@@ -78,11 +78,13 @@ function wrapMuseumCanvas({
     </svg>
   </g>
 
-  <!-- Placa curatorial de museo -->
-  <g transform="translate(180, 610)">
-    <rect width="540" height="68" rx="6" fill="#181818" stroke="#8A6516" stroke-width="1.8"/>
-    <text x="270" y="27" font-family="Georgia, 'Playfair Display', serif" font-size="19" font-weight="bold" fill="#F7F5F0" text-anchor="middle">${escapeXml(titulo)}</text>
-    <text x="270" y="50" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#D4AF37" text-anchor="middle">${escapeXml(artista)}  ·  ${escapeXml(tecnica)}  ·  ${escapeXml(codigo)}</text>
+  <!-- Placa curatorial de museo de ancho completo para que todo el título se vea sin recortes -->
+  <g transform="translate(65, 608)">
+    <rect width="770" height="72" rx="6" fill="#181818" stroke="#8A6516" stroke-width="2"/>
+    <text x="385" y="29" font-family="Georgia, 'Playfair Display', serif" font-size="${
+      titulo.length > 44 ? 16 : titulo.length > 34 ? 18 : 20
+    }" font-weight="bold" fill="#F7F5F0" text-anchor="middle">${escapeXml(titulo)}</text>
+    <text x="385" y="53" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#D4AF37" text-anchor="middle">${escapeXml(artista)}  ·  ${escapeXml(tecnica)}  ·  ${escapeXml(codigo)}</text>
   </g>
 </svg>`;
 }

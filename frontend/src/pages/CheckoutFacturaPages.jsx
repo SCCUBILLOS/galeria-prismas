@@ -333,12 +333,12 @@ export const CheckoutPage = () => {
                           src={obra.imagenUrl}
                           alt={obra.titulo}
                           className="img-fluid rounded"
-                          style={{ height: "95px", width: "100%", objectFit: "cover" }}
+                          style={{ height: "95px", width: "100%", objectFit: "contain", backgroundColor: "#eae5dc" }}
                         />
                       </div>
                       <div className="col-8 ps-3">
                         <span className="badge bg-dark small mb-1">{obra.tecnica}</span>
-                        <h2 className="h6 mb-1 text-truncate" title={obra.titulo}>
+                        <h2 className="h6 mb-1" title={obra.titulo}>
                           {obra.titulo}
                         </h2>
                         <div className="fw-bold text-gold small mb-2">

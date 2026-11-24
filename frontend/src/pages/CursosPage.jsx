@@ -79,12 +79,12 @@ const CursosPage = () => {
             <div key={curso.id} className="col-lg-6">
               <article className="card h-100 shadow-sm border-0">
                 <div className="row g-0 h-100">
-                  <div className="col-md-5">
+                  <div className="col-md-5 d-flex align-items-center rounded-start" style={{ backgroundColor: "#eae5dc" }}>
                     <img
                       src={curso.imagenUrl}
                       alt={`Curso ${curso.titulo}`}
-                      className="w-100 h-100 rounded-start"
-                      style={{ objectFit: "cover", minHeight: "230px" }}
+                      className="w-100"
+                      style={{ objectFit: "contain", maxHeight: "260px" }}
                       loading="lazy"
                     />
                   </div>

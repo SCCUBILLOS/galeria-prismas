@@ -61,12 +61,12 @@ const ExposicionesPage = () => {
             <div key={exp.id} className="col-md-6">
               <article className="card h-100 shadow-sm border-0 overflow-hidden">
                 <div className="row g-0 h-100">
-                  <div className="col-sm-5">
+                  <div className="col-sm-5 d-flex align-items-center" style={{ backgroundColor: "#eae5dc" }}>
                     <img
                       src={exp.imagenUrl}
                       alt={`Exposición ${exp.titulo}`}
-                      className="w-100 h-100"
-                      style={{ objectFit: "cover", minHeight: "220px" }}
+                      className="w-100"
+                      style={{ objectFit: "contain", maxHeight: "260px" }}
                       loading="lazy"
                     />
                   </div>

@@ -310,7 +310,7 @@ const HomePage = () => {
                   src={exp.imagenUrl}
                   alt={`Exposición ${exp.titulo}`}
                   className="card-img-top"
-                  style={{ height: "200px", objectFit: "cover" }}
+                  style={{ height: "230px", objectFit: "contain", backgroundColor: "#eae5dc" }}
                   loading="lazy"
                 />
                 <div className="card-body d-flex flex-column justify-content-between">
@@ -365,7 +365,7 @@ const HomePage = () => {
                   src={curso.imagenUrl}
                   alt={`Taller ${curso.titulo}`}
                   className="card-img-top"
-                  style={{ height: "190px", objectFit: "cover" }}
+                  style={{ height: "230px", objectFit: "contain", backgroundColor: "#eae5dc" }}
                   loading="lazy"
                 />
                 <div className="card-body d-flex flex-column justify-content-between">
@@ -411,21 +411,21 @@ const HomePage = () => {
           </h2>
           <div className="row g-3">
             {vistasRecientes.map((v) => (
-              <div key={v.id} className="col-6 col-md-3">
+              <div key={v.id} className="col-12 col-sm-6 col-md-4">
                 <Link
                   to={`/obras/detalle/${v.slug}`}
-                  className="d-flex align-items-center gap-2 p-2 bg-white rounded border text-decoration-none text-dark shadow-sm"
+                  className="d-flex align-items-center gap-2 p-2 bg-white rounded border text-decoration-none text-dark shadow-sm h-100"
                 >
                   <img
                     src={v.imagenUrl}
                     alt={v.titulo}
-                    width="52"
+                    width="64"
                     height="52"
-                    className="rounded object-fit-cover"
+                    className="rounded object-fit-contain bg-soft flex-shrink-0"
                     loading="lazy"
                   />
-                  <div className="small text-truncate">
-                    <div className="fw-semibold text-truncate">{v.titulo}</div>
+                  <div className="small">
+                    <div className="fw-semibold">{v.titulo}</div>
                     <div className="text-gold">{formatearMonedaCOP(v.precio)}</div>
                   </div>
                 </Link>
