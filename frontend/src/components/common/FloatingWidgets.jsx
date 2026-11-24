@@ -116,18 +116,63 @@ const FloatingWidgets = () => {
         </div>
       )}
 
-      {/* 2. Botón y Panel de Accesibilidad WCAG 2.1 (punto 3A.o) */}
-      <button
-        type="button"
-        className="floating-a11y-btn no-print"
-        onClick={() => setAbrirA11y(!abrirA11y)}
-        aria-expanded={abrirA11y}
-        aria-controls="panel-accesibilidad"
-        aria-label="Abrir herramientas de accesibilidad"
+      {/* 2. Tres Botones Flotantes de Accesibilidad WCAG 2.1 (punto 3A.o) */}
+      <div
+        className="floating-a11y-btn d-flex align-items-center gap-1 p-1 no-print"
+        role="group"
+        aria-label="Tres botones flotantes de accesibilidad"
       >
-        <i className="bi bi-universal-access-circle me-1" aria-hidden="true"></i>
-        Accesibilidad
-      </button>
+        {/* Botón 1: Aumentar / Cambiar tamaño de texto */}
+        <button
+          type="button"
+          className={`btn btn-sm rounded-pill px-2 py-1 ${
+            accesibilidad.escalaTexto > 100 ? "btn-warning text-dark fw-bold" : "btn-dark text-white"
+          }`}
+          onClick={() => {
+            if (accesibilidad.escalaTexto < 130) aumentarTexto();
+            else {
+              disminuirTexto();
+              disminuirTexto();
+            }
+          }}
+          aria-label={`Cambiar tamaño de letra (${accesibilidad.escalaTexto}%)`}
+          title="Botón 1: Aumentar o cambiar tamaño de texto"
+        >
+          <i className="bi bi-fonts me-1 text-warning" aria-hidden="true"></i>
+          A+ ({accesibilidad.escalaTexto}%)
+        </button>
+
+        {/* Botón 2: Alto Contraste */}
+        <button
+          type="button"
+          className={`btn btn-sm rounded-pill px-2 py-1 ${
+            accesibilidad.altoContraste ? "btn-warning text-dark fw-bold" : "btn-dark text-white"
+          }`}
+          onClick={() => toggleOpcionAccesibilidad("altoContraste")}
+          aria-pressed={accesibilidad.altoContraste}
+          aria-label="Alternar modo de alto contraste"
+          title="Botón 2: Activar o desactivar Alto Contraste"
+        >
+          <i className="bi bi-circle-half me-1 text-warning" aria-hidden="true"></i>
+          Contraste
+        </button>
+
+        {/* Botón 3: Panel completo de Accesibilidad / Lectura */}
+        <button
+          type="button"
+          className={`btn btn-sm rounded-pill px-2 py-1 ${
+            abrirA11y ? "btn-warning text-dark fw-bold" : "btn-dark text-white"
+          }`}
+          onClick={() => setAbrirA11y(!abrirA11y)}
+          aria-expanded={abrirA11y}
+          aria-controls="panel-accesibilidad"
+          aria-label="Abrir más opciones de accesibilidad"
+          title="Botón 3: Fuente para dislexia, pausar animaciones y restablecer"
+        >
+          <i className="bi bi-universal-access-circle me-1 text-warning" aria-hidden="true"></i>
+          Opciones
+        </button>
+      </div>
 
       {abrirA11y && (
         <aside

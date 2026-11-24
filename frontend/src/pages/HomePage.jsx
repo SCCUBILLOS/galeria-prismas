@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { EMPRESA, formatearMonedaCOP, formatearFechaES } from "../config/empresa";
 import { helpFetch } from "../helpers/helpFetch";
 import ObraCard from "../components/common/ObraCard";
+import AcordeonEmpresarial from "../components/common/AcordeonEmpresarial";
 import Loader from "../components/crud/Loader";
 import { useApp } from "../context/AppContext";
 
@@ -394,6 +395,11 @@ const HomePage = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Acordeón Institucional: Misión, Visión, Objetivos de la Empresa y Redes Sociales (3A.m y 3A.g) */}
+      <section className="mb-5 p-4 bg-white rounded-3 border shadow-sm" aria-label="Misión, Visión y Objetivos de Galería Prismas">
+        <AcordeonEmpresarial mostrarRedes={true} />
       </section>
 
       {/* Obras vistas recientemente (Heurística #6: Reconocer antes que recordar) */}

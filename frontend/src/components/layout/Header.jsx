@@ -5,19 +5,41 @@ import { EMPRESA, formatearMonedaCOP } from "../../config/empresa";
 import { helpFetch } from "../../helpers/helpFetch";
 
 /**
- * Header global sticky con:
+ * Header global sticky en React con:
+ * - Barra superior con Redes Sociales Oficiales (Instagram, Facebook, WhatsApp, LinkedIn, YouTube)
+ * - Los 3 Botones de Accesibilidad WCAG 2.1 directos (1: Tamaño Texto A+, 2: Alto Contraste, 3: Lectura/Reset)
  * - Logotipo oficial de Galería Prismas
- * - Menú principal: Obras, Exposiciones, Cursos, Artistas y Nosotros
- * - Navegación utilitaria: Buscar (lupa con autocompletado y atajo '/'), Favoritos (corazón), Carrito y Contacto
+ * - Menú principal: Inicio, Obras, Exposiciones, Cursos, Artistas, Nosotros y CRUD BD
+ * - Navegación utilitaria alineada y armónica: Buscador, Favoritos, Carrito y botón de Pasarela de Pago
  */
 const Header = () => {
-  const { totalUnidadesCarrito, favoritos, adminSession } = useApp();
+  const {
+    totalUnidadesCarrito,
+    favoritos,
+    adminSession,
+    accesibilidad,
+    aumentarTexto,
+    disminuirTexto,
+    toggleOpcionAccesibilidad,
+    restablecerAccesibilidad,
+  } = useApp();
+
   const [busqueda, setBusqueda] = useState("");
   const [sugerencias, setSugerencias] = useState(null);
   const [mostrarDropdown, setMostrarDropdown] = useState(false);
   const [menuAbierto, setMenuAbierto] = useState(false);
   const inputBusquedaRef = useRef(null);
   const navigate = useNavigate();
+
+  // Ciclar tamaño de fuente con el Botón 1 de accesibilidad (100% -> 115% -> 130% -> 100%)
+  const handleCiclarTamanoTexto = () => {
+    if (accesibilidad.escalaTexto < 130) {
+      aumentarTexto();
+    } else {
+      disminuirTexto();
+      disminuirTexto();
+    }
+  };
 
   // Heurística #7 (Flexibilidad y eficiencia de uso): atajo '/' para enfocar la búsqueda
   useEffect(() => {
@@ -68,38 +90,122 @@ const Header = () => {
         Saltar al contenido principal
       </a>
 
-      <div className="bg-dark text-white py-1 small">
-        <div className="container d-flex flex-wrap justify-content-between align-items-center">
-          <span>
-            <i className="bi bi-geo-alt-fill text-warning me-1" aria-hidden="true"></i>
-            Sede Bosque Popular — Bogotá, Colombia · Envíos asegurados a todo el país
-          </span>
-          <div className="d-flex align-items-center gap-3">
+      {/* Barra superior institucional: Redes Sociales + 3 Botones de Accesibilidad + Enlaces rápidos */}
+      <div className="bg-dark text-white py-1 small border-bottom border-secondary">
+        <div className="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+          {/* Redes Sociales Oficiales visibles en el encabezado */}
+          <div className="d-flex align-items-center flex-wrap gap-2" aria-label="Redes sociales oficiales">
+            <span className="text-warning fw-semibold d-none d-md-inline">
+              Síguenos:
+            </span>
+            {EMPRESA.redesSociales.map((red) => (
+              <a
+                key={red.nombre}
+                href={red.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-decoration-none d-inline-flex align-items-center gap-1 px-2 py-0 rounded bg-secondary bg-opacity-25"
+                aria-label={red.ariaLabel}
+                title={`${red.nombre}: ${red.usuario}`}
+              >
+                <i className={`bi ${red.icono} text-warning`} aria-hidden="true"></i>
+                <span className="d-none d-sm-inline" style={{ fontSize: "0.75rem" }}>
+                  {red.nombre}
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* 3 Botones directos de manejo de Accesibilidad de la página (WCAG 2.1) */}
+          <div
+            className="d-flex align-items-center flex-wrap gap-1"
+            role="group"
+            aria-label="Tres botones de manejo de accesibilidad"
+          >
+            <span className="text-light opacity-75 me-1 d-none d-lg-inline" style={{ fontSize: "0.75rem" }}>
+              <i className="bi bi-universal-access me-1 text-warning" aria-hidden="true"></i>
+              Accesibilidad:
+            </span>
+
+            {/* Botón 1 de Accesibilidad: Tamaño de Fuente */}
+            <button
+              type="button"
+              className={`btn btn-sm py-0 px-2 ${
+                accesibilidad.escalaTexto > 100 ? "btn-warning text-dark fw-bold" : "btn-outline-light"
+              }`}
+              style={{ fontSize: "0.75rem" }}
+              onClick={handleCiclarTamanoTexto}
+              aria-label={`Cambiar tamaño de letra. Actual: ${accesibilidad.escalaTexto}%`}
+              title="Botón 1 Accesibilidad: Aumentar o cambiar tamaño de letra (100%, 115%, 130%)"
+            >
+              <i className="bi bi-fonts me-1" aria-hidden="true"></i>
+              1. Letra ({accesibilidad.escalaTexto}%)
+            </button>
+
+            {/* Botón 2 de Accesibilidad: Alto Contraste */}
+            <button
+              type="button"
+              className={`btn btn-sm py-0 px-2 ${
+                accesibilidad.altoContraste ? "btn-warning text-dark fw-bold" : "btn-outline-light"
+              }`}
+              style={{ fontSize: "0.75rem" }}
+              onClick={() => toggleOpcionAccesibilidad("altoContraste")}
+              aria-pressed={accesibilidad.altoContraste}
+              aria-label="Activar o desactivar modo de alto contraste"
+              title="Botón 2 Accesibilidad: Alternar modo de Alto Contraste WCAG"
+            >
+              <i className="bi bi-circle-half me-1" aria-hidden="true"></i>
+              2. Alto Contraste
+            </button>
+
+            {/* Botón 3 de Accesibilidad: Fuente Dislexia / Restablecer */}
+            <button
+              type="button"
+              className={`btn btn-sm py-0 px-2 ${
+                accesibilidad.fuenteDislexia ? "btn-warning text-dark fw-bold" : "btn-outline-light"
+              }`}
+              style={{ fontSize: "0.75rem" }}
+              onClick={() => {
+                if (accesibilidad.fuenteDislexia) {
+                  restablecerAccesibilidad();
+                } else {
+                  toggleOpcionAccesibilidad("fuenteDislexia");
+                }
+              }}
+              aria-pressed={accesibilidad.fuenteDislexia}
+              aria-label="Activar fuente de lectura fácil o restablecer accesibilidad"
+              title="Botón 3 Accesibilidad: Activar fuente de lectura fácil para dislexia o restablecer"
+            >
+              <i className="bi bi-eye me-1" aria-hidden="true"></i>
+              {accesibilidad.fuenteDislexia ? "3. Restablecer" : "3. Lectura Fácil"}
+            </button>
+          </div>
+
+          {/* Enlaces rápidos de soporte y panel */}
+          <div className="d-none d-xl-flex align-items-center gap-3">
             <Link to="/pqr" className="text-white text-decoration-none">
-              PQR y Radicados
-            </Link>
-            <Link to="/preguntas-frecuentes" className="text-white text-decoration-none">
-              Ayuda / FAQ
+              PQR
             </Link>
             <Link
-              to={adminSession ? "/admin" : "/admin/login"}
+              to="/admin/obras"
               className="text-warning text-decoration-none fw-semibold"
             >
-              <i className="bi bi-shield-lock me-1" aria-hidden="true"></i>
-              {adminSession ? "Panel Admin" : "Admin"}
+              <i className="bi bi-database-fill-gear me-1" aria-hidden="true"></i>
+              {adminSession ? "Panel & CRUD" : "CRUD Base de Datos"}
             </Link>
           </div>
         </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg py-2" aria-label="Navegación principal">
+      {/* Barra de navegación principal */}
+      <nav className="navbar navbar-expand-xl py-2" aria-label="Navegación principal">
         <div className="container">
-          <Link to="/" className="navbar-brand d-flex align-items-center">
+          <Link to="/" className="navbar-brand d-flex align-items-center me-2">
             <img
               src="/logo.svg"
               alt="Logotipo Galería Prismas"
-              height="46"
-              width="200"
+              height="44"
+              width="190"
             />
           </Link>
 
@@ -115,7 +221,7 @@ const Header = () => {
           </button>
 
           <div className={`collapse navbar-collapse ${menuAbierto ? "show" : ""}`} id="menuPrincipal">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
+            <ul className="navbar-nav me-auto mb-2 mb-xl-0 gap-1 align-items-xl-center">
               <li className="nav-item">
                 <NavLink to="/" end className="nav-link-prisma" onClick={() => setMenuAbierto(false)}>
                   Inicio
@@ -151,15 +257,15 @@ const Header = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/pasarela" className="nav-link-prisma text-gold fw-bold" onClick={() => setMenuAbierto(false)}>
-                  <i className="bi bi-credit-card-2-front me-1" aria-hidden="true"></i>
-                  Pasarela de Pago
+                <NavLink to="/admin/obras" className="nav-link-prisma" onClick={() => setMenuAbierto(false)}>
+                  <i className="bi bi-database me-1 text-gold" aria-hidden="true"></i>
+                  CRUD BD
                 </NavLink>
               </li>
             </ul>
 
             {/* Buscador global con autocompletado */}
-            <div className="position-relative me-lg-3 my-2 my-lg-0" style={{ minWidth: "240px" }}>
+            <div className="position-relative me-xl-2 my-2 my-xl-0" style={{ minWidth: "205px" }}>
               <form onSubmit={handleSubmitBusqueda} role="search" aria-label="Búsqueda global">
                 <div className="input-group input-group-sm">
                   <label htmlFor="buscador-global" className="visually-hidden">
@@ -263,8 +369,8 @@ const Header = () => {
               )}
             </div>
 
-            {/* Navegación utilitaria: Favoritos, Carrito y Contacto */}
-            <div className="d-flex align-items-center gap-2">
+            {/* Navegación utilitaria armónica: Favoritos, Carrito, Pasarela de Pago y Contacto */}
+            <div className="d-flex align-items-center flex-wrap gap-2">
               <Link
                 to="/favoritos"
                 className="btn btn-outline-dark btn-sm position-relative"
@@ -281,12 +387,12 @@ const Header = () => {
 
               <Link
                 to="/carrito"
-                className="btn btn-outline-dark btn-sm position-relative"
+                className="btn btn-outline-dark btn-sm position-relative text-nowrap"
                 aria-label={`Carrito de compras (${totalUnidadesCarrito} artículos)`}
                 title="Carrito de compras"
               >
                 <i className="bi bi-bag" aria-hidden="true"></i>
-                <span className="ms-1 d-none d-xl-inline">Carrito</span>
+                <span className="ms-1 d-none d-xxl-inline">Carrito</span>
                 {totalUnidadesCarrito > 0 && (
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
                     {totalUnidadesCarrito}
@@ -294,7 +400,22 @@ const Header = () => {
                 )}
               </Link>
 
-              <Link to="/contacto" className="btn btn-gold btn-sm">
+              {/* Botón de Pasarela de Pago con diseño institucional limpio y armónico */}
+              <Link
+                to="/pasarela"
+                className="btn btn-gold btn-sm text-nowrap d-inline-flex align-items-center gap-1 shadow-sm"
+                onClick={() => setMenuAbierto(false)}
+                title="Ir a la Pasarela de Pagos PrismaPay"
+              >
+                <i className="bi bi-credit-card-2-front" aria-hidden="true"></i>
+                <span>Pasarela de Pago</span>
+              </Link>
+
+              <Link
+                to="/contacto"
+                className="btn btn-outline-gold btn-sm text-nowrap"
+                onClick={() => setMenuAbierto(false)}
+              >
                 Contacto
               </Link>
             </div>

@@ -26,19 +26,19 @@ const Footer = () => {
               <i className="bi bi-clock text-warning me-2" aria-hidden="true"></i>
               {EMPRESA.horario}
             </p>
-            <div className="d-flex gap-2" aria-label="Redes sociales de Galería Prismas">
+            <div className="d-flex flex-wrap gap-2" aria-label="Redes sociales de Galería Prismas">
               {EMPRESA.redesSociales.map((red) => (
                 <a
                   key={red.nombre}
                   href={red.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-outline-light btn-sm rounded-circle d-inline-flex align-items-center justify-content-center"
-                  style={{ width: "38px", height: "38px" }}
+                  className="btn btn-outline-light btn-sm d-inline-flex align-items-center gap-1 px-2 py-1"
                   aria-label={red.ariaLabel}
-                  title={red.nombre}
+                  title={`${red.nombre} (${red.usuario})`}
                 >
-                  <i className={`bi ${red.icono}`} aria-hidden="true"></i>
+                  <i className={`bi ${red.icono} text-warning`} aria-hidden="true"></i>
+                  <span>{red.nombre}</span>
                 </a>
               ))}
             </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { EMPRESA } from "../config/empresa";
 import Breadcrumbs from "../components/common/Breadcrumbs";
+import AcordeonEmpresarial from "../components/common/AcordeonEmpresarial";
 import CrudApp from "../components/crud/CrudApp";
 import {
   REGEX_CELULAR_CO,
@@ -12,90 +13,27 @@ import {
 
 /**
  * Página Nosotros (/nosotros)
- * Cumple los puntos 3A.h y 3A.m:
- * - Acordeón empresarial con Bootstrap Accordion (Misión, Visión, Objetivos, Valores e Historia)
+ * Cumple los puntos 3A.g, 3A.h y 3A.m:
+ * - Acordeón empresarial en React (Misión, Visión, Objetivos, Valores e Historia + Redes Sociales)
  * - Ubicación con iframe embebido de Google Maps con title descriptivo + dirección y horarios en texto
  */
 export const NosotrosPage = () => {
-  const [abierto, setAbierto] = useState("mision");
-
-  const itemsAcordeon = [
-    {
-      id: "mision",
-      titulo: "1. Misión Institucional",
-      contenido:
-        "Acercar el arte contemporáneo colombiano a compradores casuales, coleccionistas y estudiantes mediante una plataforma digital transparente, accesible y curada, que integra la exhibición de obras certificadas, la agenda de exposiciones y la formación artística práctica.",
-    },
-    {
-      id: "vision",
-      titulo: "2. Visión 2030",
-      contenido:
-        "Consolidarnos para el año 2030 como la galería y escuela de artes plásticas referente en Colombia por su excelencia curatorial, cumplimiento de estándares internacionales de accesibilidad web (WCAG 2.1 AA) e impulso al talento emergente y consolidado.",
-    },
-    {
-      id: "objetivos",
-      titulo: "3. Objetivos Estratégicos",
-      contenido:
-        "1) Garantizar precios transparentes y certificados de autenticidad en cada obra publicada. 2) Facilitar la inscripción a talleres artísticos con información clara de materiales, niveles y horarios. 3) Promover espacios gratuitos de circulación cultural mediante reservas digitales ágiles.",
-    },
-    {
-      id: "valores",
-      titulo: "4. Valores Corporativos",
-      contenido:
-        "Transparencia en la tasación artística · Respeto por los derechos de autor y comercio justo con los artistas · Inclusión y accesibilidad universal · Rigor pedagógico en nuestros talleres.",
-    },
-    {
-      id: "historia",
-      titulo: "5. Nuestra Historia",
-      contenido:
-        "Nacida en Bogotá a partir de una investigación de experiencia de usuario con coleccionistas y estudiantes universitarios, Galería Prismas surgió para eliminar la desorientación al comprar arte o inscribirse a cursos, unificando tres mundos (galería, museo y academia) bajo una arquitectura de información clara.",
-    },
-  ];
-
   return (
     <div className="container py-4">
       <Breadcrumbs items={[{ label: "Nosotros y Ubicación" }]} />
 
       <div className="row g-5 mb-5">
-        <div className="col-lg-6">
-          <span className="text-gold fw-bold text-uppercase small">Identidad Corporativa</span>
-          <h1 className="h2 mb-3">Sobre Galería Prismas</h1>
-          <p className="text-muted">
-            Somos un espacio cultural y comercial en Bogotá que conecta a artistas plásticos con nuevos coleccionistas y estudiantes de arte.
+        <div className="col-lg-7">
+          <h1 className="h2 mb-2">Sobre Galería Prismas</h1>
+          <p className="text-muted mb-4">
+            Somos un espacio cultural, comercial y académico en Bogotá que conecta a artistas plásticos con nuevos coleccionistas y estudiantes de arte.
           </p>
 
-          {/* Acordeón empresarial de Bootstrap (punto 3A.m) */}
-          <div className="accordion shadow-sm" id="acordeonEmpresarial">
-            {itemsAcordeon.map((item) => {
-              const expandido = abierto === item.id;
-              return (
-                <div className="accordion-item" key={item.id}>
-                  <h2 className="accordion-header" id={`heading-${item.id}`}>
-                    <button
-                      className={`accordion-button fw-semibold ${expandido ? "" : "collapsed"}`}
-                      type="button"
-                      aria-expanded={expandido}
-                      aria-controls={`collapse-${item.id}`}
-                      onClick={() => setAbierto(expandido ? "" : item.id)}
-                    >
-                      {item.titulo}
-                    </button>
-                  </h2>
-                  <div
-                    id={`collapse-${item.id}`}
-                    className={`accordion-collapse collapse ${expandido ? "show" : ""}`}
-                    aria-labelledby={`heading-${item.id}`}
-                  >
-                    <div className="accordion-body small">{item.contenido}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <AcordeonEmpresarial mostrarRedes={true} />
         </div>
 
         {/* Mapa y Ubicación (punto 3A.h) */}
-        <div className="col-lg-6">
+        <div className="col-lg-5">
           <div className="card shadow-sm border-0 p-4 bg-soft h-100">
             <h2 className="h4 mb-3">
               <i className="bi bi-geo-alt-fill text-gold me-2" aria-hidden="true"></i>
