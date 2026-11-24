@@ -16,12 +16,28 @@ const initialA11y = {
   pausarAnimaciones: false,
 };
 
+function normalizarListaObras(lista = []) {
+  if (!Array.isArray(lista)) return [];
+  return lista.map((item) => {
+    if (!item || typeof item !== "object") return item;
+    let slug = item.slug || "";
+    let imagenUrl = item.imagenUrl || "";
+    if (slug.startsWith("estudio-de-luz-en-monserrate-ii")) {
+      slug = "estudio-de-luz-en-monserrate-ii";
+      imagenUrl = "/imagenes/obras/GP-OBR-023.svg";
+    } else if (!imagenUrl || String(imagenUrl).includes("images.unsplash.com")) {
+      imagenUrl = "/imagenes/obras/GP-OBR-023.svg";
+    }
+    return { ...item, slug, imagenUrl };
+  });
+}
+
 export const AppProvider = ({ children }) => {
   // 1. Carrito de compras
   const [carrito, setCarrito] = useState(() => {
     try {
       const guardado = localStorage.getItem(STORAGE_CART);
-      return guardado ? JSON.parse(guardado) : [];
+      return guardado ? normalizarListaObras(JSON.parse(guardado)) : [];
     } catch {
       return [];
     }
@@ -34,7 +50,7 @@ export const AppProvider = ({ children }) => {
   const [favoritos, setFavoritos] = useState(() => {
     try {
       const guardado = localStorage.getItem(STORAGE_FAV);
-      return guardado ? JSON.parse(guardado) : [];
+      return guardado ? normalizarListaObras(JSON.parse(guardado)) : [];
     } catch {
       return [];
     }
@@ -44,7 +60,7 @@ export const AppProvider = ({ children }) => {
   const [vistasRecientes, setVistasRecientes] = useState(() => {
     try {
       const guardado = localStorage.getItem(STORAGE_RECENT);
-      return guardado ? JSON.parse(guardado) : [];
+      return guardado ? normalizarListaObras(JSON.parse(guardado)) : [];
     } catch {
       return [];
     }
