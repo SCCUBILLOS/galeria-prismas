@@ -24,12 +24,20 @@ const ObraCard = ({ obra }) => {
       <div className="obra-card-img-wrapper">
         <Link to={`/obras/detalle/${obra.slug}`} aria-label={`Ver detalle de ${obra.titulo}`}>
           <img
-            src={obra.imagenUrl}
+            src={
+              obra.imagenUrl && !String(obra.imagenUrl).includes("images.unsplash.com")
+                ? obra.imagenUrl
+                : "/imagenes/obras/GP-OBR-023.svg"
+            }
             alt={`Obra ${obra.titulo} en técnica ${obra.tecnica} por ${
               obra.artista?.nombre || "artista de Galería Prismas"
             }`}
             className="obra-card-img"
             loading="lazy"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = "/imagenes/obras/GP-OBR-023.svg";
+            }}
           />
         </Link>
         <div className="position-absolute top-0 start-0 p-2 d-flex gap-1 flex-wrap">

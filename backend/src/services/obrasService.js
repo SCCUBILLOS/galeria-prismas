@@ -103,7 +103,7 @@ async function listarObras(query = {}) {
 
 async function obtenerObraPorSlugOId(identificador) {
   const esId = /^\d+$/.test(String(identificador));
-  const obra = await prisma.obra.findFirst({
+  let obra = await prisma.obra.findFirst({
     where: esId ? { id: Number(identificador) } : { slug: String(identificador) },
     include: {
       artista: true,
@@ -114,6 +114,25 @@ async function obtenerObraPorSlugOId(identificador) {
       },
     },
   });
+
+  if (!obra && !esId) {
+    obra = await prisma.obra.findFirst({
+      where: {
+        OR: [
+          { slug: { startsWith: String(identificador) } },
+          { titulo: { contains: String(identificador).replace(/-/g, " ") } },
+        ],
+      },
+      include: {
+        artista: true,
+        categoria: true,
+        movimientos: {
+          orderBy: { fecha: "desc" },
+          take: 10,
+        },
+      },
+    });
+  }
 
   if (!obra) {
     throw new AppError("La obra solicitada no existe en el catálogo.", 404);
@@ -133,7 +152,8 @@ async function obtenerObraPorSlugOId(identificador) {
 
 async function crearObra(payload) {
   const baseSlug = slugify(payload.titulo);
-  const slug = `${baseSlug}-${Date.now().toString().slice(-4)}`;
+  const existeSlug = await prisma.obra.findUnique({ where: { slug: baseSlug } });
+  const slug = existeSlug ? `${baseSlug}-${Date.now().toString().slice(-4)}` : baseSlug;
   const codigo = payload.codigo || `GP-OBR-${Math.floor(100 + Math.random() * 900)}`;
   const stock = payload.stock !== undefined ? Number(payload.stock) : 1;
   const estado = stock > 0 ? payload.estado || "Disponible" : "Vendida";
@@ -158,6 +178,11 @@ async function crearObra(payload) {
     artistaId = primerArt.id;
   }
 
+  const imagenPorDefecto =
+    payload.imagenUrl && !String(payload.imagenUrl).includes("images.unsplash.com")
+      ? payload.imagenUrl
+      : "/imagenes/obras/GP-OBR-023.svg";
+
   const nueva = await prisma.obra.create({
     data: {
       titulo: payload.titulo,
@@ -174,11 +199,11 @@ async function crearObra(payload) {
       esUnica: payload.esUnica !== undefined ? Boolean(payload.esUnica) : stock === 1,
       estado,
       destacada: Boolean(payload.destacada),
-      descripcion: payload.descripcion || "Obra certificada por Galería Prismas.",
+      descripcion:
+        payload.descripcion ||
+        "Óleo contemporáneo que estudia los haces de luz dorada sobre el santuario y los cerros de Monserrate.",
       historiaCuraduria: payload.historiaCuraduria || "Certificado de autenticidad incluido.",
-      imagenUrl:
-        payload.imagenUrl ||
-        "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=900&q=80",
+      imagenUrl: imagenPorDefecto,
       espacioSugerido: payload.espacioSugerido || "Sala principal o estudio",
       categoriaId,
       artistaId,
@@ -250,9 +275,14 @@ async function actualizarObra(id, payload) {
 }
 
 async function eliminarObra(id) {
-  const actual = await prisma.obra.findUnique({ where: { id: Number(id) } });
+  const obraId = Number(id);
+  const actual = await prisma.obra.findUnique({ where: { id: obraId } });
   if (!actual) throw new AppError("Obra no encontrada.", 404);
-  await prisma.obra.delete({ where: { id: Number(id) } });
+  await prisma.$transaction([
+    prisma.detallePedido.deleteMany({ where: { obraId } }),
+    prisma.movimientoInventario.deleteMany({ where: { obraId } }),
+    prisma.obra.delete({ where: { id: obraId } }),
+  ]);
   return { mensaje: "Obra eliminada correctamente" };
 }
 

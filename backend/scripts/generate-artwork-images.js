@@ -727,6 +727,47 @@ const obrasSvgSpecs = [
       <circle cx="265" cy="265" r="46" fill="#1c1917" stroke="#D4AF37" stroke-width="4"/>
     `,
   },
+  {
+    file: "GP-OBR-023.svg",
+    codigo: "GP-OBR-023",
+    titulo: "Estudio de Luz en Monserrate II",
+    artista: "Valentina Restrepo",
+    tecnica: "Óleo Contemporáneo sobre Lino (70 x 90 cm)",
+    bgGradient: `<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="38%" stop-color="#7c2d12"/>
+      <stop offset="72%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fef08a"/>
+    </linearGradient>`,
+    innerArtworkSvg: `
+      <!-- Rayos de luz crepuscular proyectados sobre el Cerro de Monserrate -->
+      <polygon points="345,40 120,380 230,380" fill="#fef08a" opacity="0.22"/>
+      <polygon points="345,40 310,380 430,380" fill="#fde047" opacity="0.28"/>
+      <polygon points="345,40 480,380 610,380" fill="#fef08a" opacity="0.22"/>
+      <circle cx="345" cy="135" r="68" fill="#fef9c3" opacity="0.92"/>
+      <circle cx="345" cy="135" r="105" fill="#f59e0b" opacity="0.3"/>
+      <!-- Silueta de los Cerros Orientales y cumbre de Monserrate -->
+      <path d="M0 370 L130 275 L235 305 L345 170 L460 285 L575 235 L690 310 L690 478 L0 478 Z" fill="#1e1b4b"/>
+      <path d="M220 315 L345 170 L475 300 L475 478 L220 478 Z" fill="#0f172a"/>
+      <!-- Basílica del Señor de Monserrate iluminada en la cima -->
+      <g transform="translate(324, 134)">
+        <rect x="6" y="18" width="30" height="18" fill="#ffffff" stroke="#D4AF37" stroke-width="1.5"/>
+        <polygon points="3,18 21,5 39,18" fill="#f59e0b"/>
+        <rect x="17" y="0" width="8" height="18" fill="#ffffff"/>
+        <line x1="21" y1="-10" x2="21" y2="2" stroke="#fef08a" stroke-width="2.5"/>
+        <line x1="16" y1="-5" x2="26" y2="-5" stroke="#fef08a" stroke-width="2.5"/>
+      </g>
+      <!-- Funicular / Teleférico subiendo por la ladera iluminada -->
+      <line x1="150" y1="395" x2="328" y2="172" stroke="#fde047" stroke-width="2" stroke-dasharray="5,4"/>
+      <circle cx="240" cy="282" r="5" fill="#fef08a"/>
+      <!-- Pinceladas de reflejos dorados en el piedemonte bogotano -->
+      <g stroke="#fbbf24" stroke-width="4" stroke-linecap="round" opacity="0.8">
+        <line x1="85" y1="415" x2="195" y2="415"/>
+        <line x1="260" y1="435" x2="430" y2="435"/>
+        <line x1="485" y1="418" x2="605" y2="418"/>
+      </g>
+    `,
+  },
 ];
 
 // Exposiciones (4 banners acordes al título de cada exposición)

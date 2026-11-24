@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" role="img" aria-label="Estudio de Luz en Monserrate II — Valentina Restrepo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="38%" stop-color="#7c2d12"/>
+      <stop offset="72%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fef08a"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="canvasTex" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="1.2" result="light">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+      <feBlend in="SourceGraphic" in2="light" mode="multiply"/>
+    </filter>
+    <linearGradient id="goldFrame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#8A6516"/>
+      <stop offset="100%" stop-color="#5A400C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pared de galería con iluminación cenital -->
+  <rect width="900" height="700" fill="#eae5dc"/>
+  <radialGradient id="wallSpot" cx="50%" cy="38%" r="65%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#dcd5c9" stop-opacity="0.95"/>
+  </radialGradient>
+  <rect width="900" height="700" fill="url(#wallSpot)"/>
+
+  <!-- Marco museográfico exterior -->
+  <g filter="url(#shadow)">
+    <rect x="65" y="36" width="770" height="554" rx="4" fill="#1b1b1b" stroke="url(#goldFrame)" stroke-width="4"/>
+    <!-- Paspartú / Bisel interior -->
+    <rect x="85" y="56" width="730" height="514" fill="#f7f4ee" stroke="#d2cabb" stroke-width="2"/>
+    <!-- Lienzo principal de la obra -->
+    <svg x="105" y="74" width="690" height="478" viewBox="0 0 690 478">
+      <rect width="690" height="478" fill="url(#bg)"/>
+      
+      <!-- Rayos de luz crepuscular proyectados sobre el Cerro de Monserrate -->
+      <polygon points="345,40 120,380 230,380" fill="#fef08a" opacity="0.22"/>
+      <polygon points="345,40 310,380 430,380" fill="#fde047" opacity="0.28"/>
+      <polygon points="345,40 480,380 610,380" fill="#fef08a" opacity="0.22"/>
+      <circle cx="345" cy="135" r="68" fill="#fef9c3" opacity="0.92"/>
+      <circle cx="345" cy="135" r="105" fill="#f59e0b" opacity="0.3"/>
+      <!-- Silueta de los Cerros Orientales y cumbre de Monserrate -->
+      <path d="M0 370 L130 275 L235 305 L345 170 L460 285 L575 235 L690 310 L690 478 L0 478 Z" fill="#1e1b4b"/>
+      <path d="M220 315 L345 170 L475 300 L475 478 L220 478 Z" fill="#0f172a"/>
+      <!-- Basílica del Señor de Monserrate iluminada en la cima -->
+      <g transform="translate(324, 134)">
+        <rect x="6" y="18" width="30" height="18" fill="#ffffff" stroke="#D4AF37" stroke-width="1.5"/>
+        <polygon points="3,18 21,5 39,18" fill="#f59e0b"/>
+        <rect x="17" y="0" width="8" height="18" fill="#ffffff"/>
+        <line x1="21" y1="-10" x2="21" y2="2" stroke="#fef08a" stroke-width="2.5"/>
+        <line x1="16" y1="-5" x2="26" y2="-5" stroke="#fef08a" stroke-width="2.5"/>
+      </g>
+      <!-- Funicular / Teleférico subiendo por la ladera iluminada -->
+      <line x1="150" y1="395" x2="328" y2="172" stroke="#fde047" stroke-width="2" stroke-dasharray="5,4"/>
+      <circle cx="240" cy="282" r="5" fill="#fef08a"/>
+      <!-- Pinceladas de reflejos dorados en el piedemonte bogotano -->
+      <g stroke="#fbbf24" stroke-width="4" stroke-linecap="round" opacity="0.8">
+        <line x1="85" y1="415" x2="195" y2="415"/>
+        <line x1="260" y1="435" x2="430" y2="435"/>
+        <line x1="485" y1="418" x2="605" y2="418"/>
+      </g>
+    
+      <!-- Firma sutil en esquina del lienzo -->
+      <text x="672" y="464" font-family="Georgia, serif" font-size="12" font-style="italic" fill="rgba(255,255,255,0.75)" text-anchor="end">Valentina Restrepo</text>
+    </svg>
+  </g>
+
+  <!-- Placa curatorial de museo -->
+  <g transform="translate(180, 610)">
+    <rect width="540" height="68" rx="6" fill="#181818" stroke="#8A6516" stroke-width="1.8"/>
+    <text x="270" y="27" font-family="Georgia, 'Playfair Display', serif" font-size="19" font-weight="bold" fill="#F7F5F0" text-anchor="middle">Estudio de Luz en Monserrate II</text>
+    <text x="270" y="50" font-family="'Inter', Arial, sans-serif" font-size="13" fill="#D4AF37" text-anchor="middle">Valentina Restrepo  ·  Óleo Contemporáneo sobre Lino (70 x 90 cm)  ·  GP-OBR-023</text>
+  </g>
+</svg>

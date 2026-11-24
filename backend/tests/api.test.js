@@ -59,7 +59,7 @@ describe("API REST Galería Prismas — Pruebas de Integración", () => {
       .post("/api/obras")
       .set("Authorization", `Bearer ${adminToken}`)
       .send({
-        titulo: "Estudio de Luz en Monserrate II",
+        titulo: "Obra Temporal de Prueba Automatizada",
         tecnica: "Óleo",
         estilo: "Contemporáneo",
         tamano: "Mediano",
@@ -71,7 +71,7 @@ describe("API REST Galería Prismas — Pruebas de Integración", () => {
       });
 
     expect(crearRes.statusCode).toBe(201);
-    expect(crearRes.body.dato.titulo).toBe("Estudio de Luz en Monserrate II");
+    expect(crearRes.body.dato.titulo).toBe("Obra Temporal de Prueba Automatizada");
     obraCreadaId = crearRes.body.dato.id;
 
     const editarRes = await request(app)

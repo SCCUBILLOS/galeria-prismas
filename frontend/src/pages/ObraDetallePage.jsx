@@ -89,10 +89,18 @@ const ObraDetallePage = () => {
         <div className="col-lg-6">
           <div className="border rounded-3 overflow-hidden shadow-sm bg-soft p-3 text-center">
             <img
-              src={obra.imagenUrl}
+              src={
+                obra.imagenUrl && !String(obra.imagenUrl).includes("images.unsplash.com")
+                  ? obra.imagenUrl
+                  : "/imagenes/obras/GP-OBR-023.svg"
+              }
               alt={`Obra ${obra.titulo} de ${obra.artista?.nombre} en técnica ${obra.tecnica}`}
               className="img-fluid rounded"
               style={{ maxHeight: "540px", objectFit: "contain" }}
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/imagenes/obras/GP-OBR-023.svg";
+              }}
             />
           </div>
         </div>

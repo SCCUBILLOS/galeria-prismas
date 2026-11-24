@@ -709,6 +709,30 @@ async function main() {
       categoriaId: categorias["novedades"].id,
       artistaId: artistas["mateo-villamizar"].id,
     },
+    {
+      titulo: "Estudio de Luz en Monserrate II",
+      slug: "estudio-de-luz-en-monserrate-ii",
+      codigo: "GP-OBR-023",
+      tecnica: "Óleo",
+      estilo: "Contemporáneo",
+      tamano: "Mediano",
+      dimensiones: "70 x 90 cm",
+      anio: 2026,
+      precio: 2250000,
+      stock: 2,
+      stockMinimo: 1,
+      esUnica: false,
+      estado: "Disponible",
+      destacada: true,
+      descripcion:
+        "Segundo estudio lumínico al óleo sobre el santuario de Monserrate bajo los rayos dorados del crepúsculo bogotano.",
+      historiaCuraduria:
+        "Obra certificada por Valentina Restrepo con bastidor de cedro y marquetería de galería.",
+      imagenUrl: "/imagenes/obras/GP-OBR-023.svg",
+      espacioSugerido: "Sala principal, biblioteca o estudio ejecutivo",
+      categoriaId: categorias["pinturas"].id,
+      artistaId: artistas["valentina-restrepo"].id,
+    },
   ];
 
   const obrasCreadas = [];
